@@ -23,8 +23,8 @@ UNIQUE (AUsername)
 CREATE TABLE FISH(
 ScientificName		VARCHAR(50)		NOT NULL,
 Size			VARCHAR(10)		,
-Description		VARCHAR(200)	NOT NULL,
-FreshOrSaltwater	INT			NOT NULL,
+Description		TEXT	NOT NULL,
+FreshOrSaltwater	VARCHAR(10)			NOT NULL,
 Weight			VARCHAR(10)		,
 PRIMARY KEY (ScientificName)
 );
