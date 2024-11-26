@@ -1,0 +1,134 @@
+.footer41-footer7 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+.footer41-max-width {
+  gap: var(--dl-space-space-threeunits);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.footer41-content {
+  gap: var(--dl-space-space-twounits);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.footer41-logo1 {
+  gap: 24px;
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.footer41-logo2 {
+  height: 2rem;
+}
+.footer41-links {
+  gap: var(--dl-space-space-twounits);
+  display: flex;
+  align-items: flex-start;
+}
+.footer41-credits {
+  gap: var(--dl-space-space-twounits);
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-direction: column;
+}
+.footer41-row {
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  justify-content: space-between;
+}
+.footer41-container {
+  display: flex;
+  align-items: flex-start;
+}
+.footer41-footer-links {
+  gap: 24px;
+  display: flex;
+  align-items: flex-start;
+}
+.footer41-text11 {
+  fill: var(--dl-color-theme-neutral-dark);
+  color: var(--dl-color-theme-neutral-dark);
+}
+.footer41-fragment1 {
+  display: contents;
+}
+.footer41-text14 {
+  display: inline-block;
+}
+.footer41-fragment2 {
+  display: contents;
+}
+.footer41-text15 {
+  display: inline-block;
+}
+.footer41-fragment3 {
+  display: contents;
+}
+.footer41-text16 {
+  display: inline-block;
+}
+.footer41-fragment4 {
+  display: contents;
+}
+.footer41-text17 {
+  display: inline-block;
+}
+.footer41-fragment5 {
+  display: contents;
+}
+.footer41-text18 {
+  display: inline-block;
+}
+.footer41-fragment6 {
+  display: contents;
+}
+.footer41-text19 {
+  display: inline-block;
+}
+.footer41-fragment7 {
+  display: contents;
+}
+.footer41-text20 {
+  display: inline-block;
+}
+.footer41-fragment8 {
+  display: contents;
+}
+.footer41-text21 {
+  display: inline-block;
+}
+@media(max-width: 767px) {
+  .footer41-row {
+    gap: var(--dl-space-space-oneandhalfunits);
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+@media(max-width: 479px) {
+  .footer41-max-width {
+    gap: var(--dl-space-space-oneandhalfunits);
+  }
+  .footer41-links {
+    flex-direction: column;
+  }
+  .footer41-footer-links {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
