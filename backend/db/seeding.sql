@@ -1,6 +1,9 @@
-
+drop database fishingblog471;
 create DATABASE fishingblog471;
 USE fishingblog471;
+
+/* updated db definition and seeding script
+	nov 27 2024*/
 
 CREATE TABLE MEMBER(
 MUsername		VARCHAR(20)		NOT NULL,
@@ -52,7 +55,7 @@ PRIMARY KEY (Name)
 CREATE TABLE FISHING_TYPES_LOC (
 LocName		VARCHAR(50)		NOT NULL,
 FishingType		VARCHAR(30)		NOT NULL,
-PRIMARY KEY (FishingType),
+PRIMARY KEY (Locname, FishingType),
 FOREIGN KEY (LocName) REFERENCES FISHING_LOCATION (Name)
 );
 
@@ -68,15 +71,15 @@ PRIMARY KEY (ItemID)
 
 CREATE TABLE FISHING_TYPES_GEAR (
 ItemID			INT			NOT NULL,
-FishingType		VARCHAR(20)		NOT NULL,
-PRIMARY KEY (FishingType),
+FishingType		VARCHAR(255)		NOT NULL,
+PRIMARY KEY (ItemID, FishingType),
 FOREIGN Key (ItemID) REFERENCES FISHING_GEAR (ItemID)
 );
 
 
 CREATE TABLE BLOG_POST(
-PostID			INT			NOT NULL,
-Title			VARCHAR(20)		NOT NULL,
+PostID			INT		AUTO_INCREMENT	NOT NULL,
+Title			VARCHAR(255)		NOT NULL,
 Body			TEXT 	NOT NULL,
 MemAuthUsername	VARCHAR(20)		,
 AdminPostFlag		INT			NOT NULL,
@@ -94,7 +97,7 @@ FOREIGN KEY (PostID) REFERENCES BLOG_POST (PostID)
 CREATE TABLE COMMENT (
 MemUsername		VARCHAR(20)		NOT NULL,
 PostID			INT			NOT NULL,
-DateWritten		DATE			NOT NULL,
+DateWritten		DATETIME			NOT NULL,
 Title			VARCHAR(20)		,
 Body			TEXT	NOT NULL,
 PRIMARY KEY (DateWritten),
@@ -105,7 +108,7 @@ FOREIGN KEY (PostID) REFERENCES BLOG_POST (PostID)
 CREATE TABLE REVIEW (
 MemUsername		VARCHAR(20)		NOT NULL,
 ItemID			INT			NOT NULL,
-DateWritten		DATE			NOT NULL,
+DateWritten		DATETIME			NOT NULL,
 Title			VARCHAR(20)		,
 Body			TEXT	NOT NULL,
 Rating			INT			NOT NULL,
@@ -198,3 +201,138 @@ ItemID			INT 			NOT NULL,
 FOREIGN KEY (AUsername) REFERENCES ADMIN (AUsername),
 FOREIGN KEY (ItemID) REFERENCES FISHING_GEAR (ItemID)
 );
+
+
+-- Insert into MEMBERS
+INSERT INTO MEMBER
+VALUES
+('user1', 'user1@email.com', 'password1', 'First User', '2021-03-21 11:36:14'),
+('user2', 'user2@email.com', 'password2', 'Second User', '2021-04-21 11:46:14'),
+('user3', 'user3@email.com', 'password3', 'Third User', '2021-05-21 11:56:14');
+
+-- Insert into ADMIN
+INSERT INTO ADMIN
+VALUES
+('admin1', 'admin1@email.com', 'apassword1'),
+('admin2', 'admin2@email.com', 'apassword2'),
+('admin3', 'admin3@email.com', 'apassword3');
+
+-- Insert into FISH
+INSERT INTO FISH
+VALUES
+('Oncorhynchus mykiss', NULL, 
+'This trout is an olive-green colour with heavy black spotting over the length of the body. The adult fish has a red-coloured stripe along the lateral line, from the gills to the tail. Rainbow trout in lakes are usually lighter coloured or a more silvery colour than those in streams', 
+'Freshwater', NULL),
+('Sander vitreus', NULL, 
+'Named for their big eyes, walleye are the largest members of the perch family. Two distinct fins are present on the back, the first featuring large spines. Dusky vertical bars are often found on the body. Other distinctive characteristics for these fish include: A yellow-olive back Brassy, silvery sides with yellow spots A white underside White on the lower lobe of the tail', 
+'Freshwater', NULL),
+('Sander canadensis', NULL, 
+'Sauger are golden olive on the back, with silver-yellow sides and a white underside. As a member of the perch family, they also have a large spiny dorsal fin. Other distinguishing characteristics include: distinct rows of spots on the dorsal fins three or four dusky vertical bars, or saddles, on the body', 
+'Freshwater', NULL);
+
+-- Insert into FISH_COMMON_NAMES
+INSERT INTO FISH_COMMON_NAMES
+VALUES
+('Oncorhynchus mykiss', 'Rainbow Trout'),
+('Sander vitreus', 'Walleye'),
+('Sander canadensis', 'Sauger');
+
+-- Insert into FISH_SUITABLE_LURES
+INSERT INTO FISH_SUITABLE_LURES
+VALUES
+('Oncorhynchus mykiss', 'Leeches, shrimp'),
+('Sander vitreus', 'Minnows, snails'),
+('Sander canadensis', 'Leeches, insects');
+
+-- Insert into FISHING_LOCATION
+INSERT INTO FISHING_LOCATION
+VALUES
+('Cold Lake', 'Canada'),
+('Lac La Biche', 'Canada'),
+('Lake Minnewanka', 'Canada');
+
+-- Insert into FISHING_TYPES_LOC
+INSERT INTO FISHING_TYPES_LOC
+VALUES
+('Cold Lake', 'Angling'),
+('Lac La Biche', 'Angling, fly fishing'),
+('Lake Minnewanka', 'Angling');
+
+-- Insert into FISHING_GEAR
+INSERT INTO FISHING_GEAR
+VALUES
+(1, 10, 'Fishing Rod', 'In Stock', 0, 70),
+(2, 10, 'Fishing Hat', 'In Stock', 0, 20),
+(3, 10, 'Fishing Line', 'In Stock', 0, 10),
+(4, 10, 'Beginner’s Guide to Fishing', 'In Stock', 0, 35),
+(5, 10, 'Beginner Angler Kit', 'In Stock', 0, 120);
+
+-- Insert into FISHING_TYPES_GEAR
+INSERT INTO FISHING_TYPES_GEAR
+VALUES
+(1, 'Angling'),
+(3, 'Angling, fly fishing, ice fishing'),
+(5, 'Angling');
+
+-- Insert into BLOG_POST
+INSERT INTO BLOG_POST
+VALUES
+(1, 'Introduction to Angling', 'Lorem ipsum dolor sit amet...', 'user1', 0),
+(2, 'Introduction to Fly Fishing', 'Lorem ipsum dolor sit amet...', 'user1', 0),
+(3, 'Fishing Etiquette', 'Lorem ipsum dolor sit amet...', NULL, 1),
+(4, 'Water Safety for the Novice Fisherman', 'Lorem ipsum dolor sit amet...', NULL, 1),
+(5, 'What No One Tells You About Fishing', 'Lorem ipsum dolor sit amet...', 'user3', 0);
+
+-- Insert into COMMENT
+INSERT INTO COMMENT
+VALUES
+('user2', 1, '2021-03-28 11:46:14', NULL, 'Loved it! Very helpful article.'),
+('user2', 3, '2021-04-28 11:46:14', NULL, 'I wish I could send this to every jerk I see clogging up a waterway with their ego. Phew! This should be required reading for new fishermen.'),
+('user1', 5, '2021-06-28 11:46:14', 'THIS POST IS LAW', 'It’s true. It happened to my uncle, and we never heard from him again. Mama, don’t let your sons grow up to be fishermen.');
+
+-- Insert into REVIEW
+INSERT INTO REVIEW
+VALUES
+('user2', 5, '2021-03-28 11:46:14', NULL, 'I didn’t know where to start, but this kit had everything I could imagine and more! Will be buying three more and bringing my buddies next time.', 5),
+('user2', 2, '2021-07-28 11:46:14', NULL, 'I embroidered the classic women fear me, fish love me onto mine, made it so much more interesting.', 4),
+('user1', 5, '2023-07-28 11:46:14', 'RUN FOR IT', 'THE BEES, NOT THE BEES! OH GOD NOT THE BEES', 5);
+
+-- Insert into TOOK_PLACE_AT
+INSERT INTO TOOK_PLACE_AT
+VALUES
+(5, 'Lake Minnewanka');
+
+-- Insert into ABOUT
+INSERT INTO ABOUT
+VALUES
+(5, 'Sander canadensis'),
+(5, 'Sander vitreus'),
+(5, 'Oncorhynchus mykiss');
+
+-- Insert into WRITTEN_BY_ADMIN
+INSERT INTO WRITTEN_BY_ADMIN
+VALUES
+(3, 'admin1'),
+(4, 'admin1');
+
+-- Insert into MENTIONED_IN
+INSERT INTO MENTIONED_IN
+VALUES
+(1, 1),
+(1, 4),
+(1, 5),
+(5, 2),
+(5, 3);
+
+-- Insert into SOURCED_BY
+INSERT INTO SOURCED_BY
+VALUES
+('admin1', 1),
+('admin1', 2),
+('admin1', 3),
+('admin1', 4),
+('admin1', 5);
+
+
+
+

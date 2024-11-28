@@ -16,6 +16,7 @@ const getPost = (req, res) => {
   const { id } = req.params;
   blogModel.getPostById(id, (err, results) => {
     if (err) {
+      console.log(err);
       res.status(500).send('Database query error');
       return;
     }
@@ -30,12 +31,13 @@ const getPost = (req, res) => {
 // Create a new post
 const createPost = (req, res) => {
   const { title, body, authorID, adminFlag } = req.body;
-  if (!title || !body || !authorID || !adminFlag) {
+  if (title === undefined || body === undefined || authorID === undefined || adminFlag === undefined) {
     res.status(400).send('All input is required');
     return;
   }
   blogModel.createPost(title, body, authorID, adminFlag, (err, results) => {
     if (err) {
+      console.log(err);
       res.status(500).send('Database query error');
       return;
     }
