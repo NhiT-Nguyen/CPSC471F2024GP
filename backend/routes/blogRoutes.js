@@ -23,4 +23,20 @@ router.put('/posts/:id/admin', blogController.updatePostAdminFlag);
 // delete blog post
 router.delete('/posts/:id', blogController.deletePost);
 
+// get images for a post
+router.get('/posts/:id/images', blogController.getPostImages);
+
+// get image by id
+router.get('/images/:id', blogController.getImageById);
+
+// add image to post
+router.post('/posts/:id/images', blogController.addImageToPost);
+
+// delete image from post
+router.delete('/images/:id', blogController.deleteImage);
+
+// delete all images from post
+router.delete('/posts/:id/images', blogController.deleteAllImages);
+
+
 module.exports = router;

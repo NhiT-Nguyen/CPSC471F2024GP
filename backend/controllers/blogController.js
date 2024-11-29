@@ -108,6 +108,71 @@ const deletePost = (req, res) => {
   });
 };
 
+// get images for a post
+const getPostImages = (req, res) => {
+  const { id } = req.params;
+  blogModel.getPostImages(id, (err, results) => {
+    if (err) {
+      res.status(500).send('Database query error');
+      return;
+    }
+    res.json(results);
+  });
+};
+
+// get image by id
+const getImageById = (req, res) => {
+  const { id } = req.params;
+  blogModel.getImageById(id, (err, results) => {
+    if (err) {
+      res.status(500).send('Database query error');
+      return;
+    }
+    res.json(results);
+  });
+};
+
+// add image to post
+const addImageToPost = (req, res) => {
+  const { id } = req.params;
+  const { imageData } = req.body;
+  if (!imageData) {
+    res.status(400).send('Image data is required');
+    return;
+  }
+  blogModel.addImageToPost(id, imageData, (err, results) => {
+    if (err) {
+      res.status(500).send('Database query error');
+      return;
+    }
+    res.json(results);
+  });
+};
+
+// delete image from post
+const deleteImage = (req, res) => {
+  const { id } = req.params;
+  blogModel.deleteImage(id, (err, results) => {
+    if (err) {
+      res.status(500).send('Database query error');
+      return;
+    }
+    res.json({ message: 'Image deleted successfully' });
+  });
+};
+
+// delete all images from post
+const deleteAllImages = (req, res) => {
+  const { id } = req.params;
+  blogModel.deleteAllImages(id, (err, results) => {
+    if (err) {
+      res.status(500).send('Database query error');
+      return;
+    }
+    res.json({ message: 'All images deleted successfully' });
+  });
+};
+
 module.exports = {
   getPosts,
   getPost,

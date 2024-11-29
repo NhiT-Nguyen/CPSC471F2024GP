@@ -35,6 +35,30 @@ const deletePost = (id, callback) => {
     db.query('DELETE FROM blog_post WHERE PostID = ?', [id], callback);
 }
 
+// get images for a post
+const getPostImages = (id, callback) => {
+    db.query('SELECT * FROM blog_post_images WHERE PostID = ?', [id], callback);
+}
+
+// get image by id
+const getImageById = (id, callback) => {
+    db.query('SELECT ImageData FROM blog_post_images WHERE ImageID = ?', [id], callback);
+}
+
+// add image to post
+const addImageToPost = (id, imageData, callback) => {
+    db.query('INSERT INTO blog_post_images (PostID, ImageData) VALUES (?, ?)', [id, imageData], callback);
+}
+
+// delete image from post
+const deleteImage = (id, callback) => {
+    db.query('DELETE FROM blog_post_images WHERE ImageID = ?', [id], callback);
+}
+
+// delete all images from post
+const deleteAllImages = (id, callback) => {
+    db.query('DELETE FROM blog_post_images WHERE PostID = ?', [id], callback);
+}
 module.exports = {
     getAllPosts,
     getPostById,

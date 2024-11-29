@@ -2,15 +2,14 @@ drop database fishingblog471;
 create DATABASE fishingblog471;
 USE fishingblog471;
 
-/* updated db definition and seeding script
-	nov 27 2024*/
+
 
 CREATE TABLE MEMBER(
 MUsername		VARCHAR(20)		NOT NULL,
 MEmail			VARCHAR(20)		NOT NULL,
 MPassword		VARCHAR(20)		NOT NULL,
 UserDescription		VARCHAR(200)	,
-JoinDate		DATE			NOT NULL,
+JoinDate		DATETIME			NOT NULL,
 PRIMARY KEY (MEmail),
 UNIQUE (MUsername)
 );
@@ -89,20 +88,21 @@ FOREIGN KEY (MemAuthUsername) REFERENCES MEMBER (MUsername)
 
 CREATE TABLE BLOG_POST_IMAGES (
 	PostID			INT			NOT NULL,
-	ImageID		INT	NOT NULL,
+	ImageID		INT	AUTO INCREMENT NOT NULL,
+    ImageData LONGBLOB NOT NULL,
 PRIMARY KEY (ImageID),
 FOREIGN KEY (PostID) REFERENCES BLOG_POST (PostID)
 );
 
 CREATE TABLE COMMENT (
-MemUsername		VARCHAR(20)		NOT NULL,
-PostID			INT			NOT NULL,
-DateWritten		DATETIME			NOT NULL,
-Title			VARCHAR(20)		,
-Body			TEXT	NOT NULL,
-PRIMARY KEY (DateWritten),
-FOREIGN KEY (MemUsername) REFERENCES MEMBER (MUsername),
-FOREIGN KEY (PostID) REFERENCES BLOG_POST (PostID)
+  MemUsername VARCHAR(20) NOT NULL,
+  PostID INT NOT NULL,
+  DateWritten DATETIME NOT NULL,
+  Title VARCHAR(20),
+  Body TEXT NOT NULL,
+  PRIMARY KEY (MemUsername, PostID, DateWritten),
+  FOREIGN KEY (MemUsername) REFERENCES MEMBER (MUsername),
+  FOREIGN KEY (PostID) REFERENCES BLOG_POST (PostID)
 );
 
 CREATE TABLE REVIEW (
