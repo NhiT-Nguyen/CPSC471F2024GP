@@ -181,4 +181,10 @@ module.exports = {
   updatePostBody,
   updatePostAdminFlag,
   deletePost,
+  getPostImages,
+  getImageById,
+  addImageToPost,
+  deleteImage,
+  deleteAllImages
+  
 };

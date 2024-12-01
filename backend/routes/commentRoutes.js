@@ -15,10 +15,12 @@ router.get('/comments/member/:username', commentController.getCommentsByMember);
 router.post('/comments', commentController.createComment);
 
 // update comment title
-router.put('/comments/:id/title', commentController.updateCommentTitle);
+//router.put('/comments/:id/title', commentController.updateCommentTitle);
+router.put('/comments/:memUsername/:postId/:dateWritten/title', commentController.updateCommentTitle);
 
 // update comment body
-router.put('/comments/:id/body', commentController.updateCommentBody);
+//router.put('/comments/:id/body', commentController.updateCommentBody);
+router.put('/comments/:memUsername/:postId/:dateWritten/body', commentController.updateCommentBody);
 
 // delete comment
 router.delete('/comments/:memUsername/:postID/:dateWritten', commentController.deleteComment);
