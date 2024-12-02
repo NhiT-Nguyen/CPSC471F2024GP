@@ -1,12 +1,14 @@
 const express = require('express');
-
+const db = require('./backend/config/db');
 const app = express();
-const port = 3007;
+const port = 3000;
+const blogRoutes = require('./backend/routes/blogRoutes');
 
+app.use(express.json());
+
+app.use('/blog', blogRoutes);
 app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
-
-app.listen(port, () => {
-    console.log(`App listening at http://localhost:${port}`);
-});
+  res.send('Hello World!');
+}
+);
+module.exports = app;
