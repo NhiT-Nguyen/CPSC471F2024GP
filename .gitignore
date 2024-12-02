@@ -589,3 +589,4 @@ node_modules/mime/README.md
 node_modules/mime/src/build.js
 node_modules/mime/src/test.js
 node_modules/.bin/mime
+node_modules/.bin/mime
