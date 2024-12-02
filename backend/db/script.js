@@ -1,10 +1,15 @@
 // Basic script from https://expressjs.com/en/guide/database-integration.html#mysql
 const mysql = require('mysql')
 const connection = mysql.createConnection({
-  host: 'localhost',
+  /*host: 'localhost',
   user: 'dbuser',
   password: 's3kreee7',
-  database: 'my_db'
+  database: 'my_db'*/
+
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'fishingblog471'
 })
 
 connection.connect()
