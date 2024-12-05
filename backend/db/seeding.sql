@@ -112,7 +112,7 @@ DateWritten		DATETIME			NOT NULL,
 Title			VARCHAR(20)		,
 Body			TEXT	NOT NULL,
 Rating			INT			NOT NULL,
-PRIMARY KEY (DateWritten),
+PRIMARY KEY (DateWritten,MemUsername,ItemID),
 FOREIGN KEY (ItemID) REFERENCES FISHING_GEAR (ItemID),
 FOREIGN KEY (MemUsername) REFERENCES MEMBER (MUsername)
 );
