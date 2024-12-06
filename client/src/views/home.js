@@ -15,7 +15,7 @@ const Home = (props) => {
   return (
     <div className="home-container">
       <Helmet>
-        <title>Rapid Radiant Zebra</title>
+        <title>Transparent Waters</title>
         <meta property="og:title" content="Rapid Radiant Zebra" />
       </Helmet>
       <Navbar8
@@ -112,7 +112,7 @@ const Home = (props) => {
         }
         heading1={
           <Fragment>
-            <span className="home-text27">Welcome to soFISHtication</span>
+            <span className="home-text27">Welcome to Transparent Waters</span>
           </Fragment>
         }
       ></Hero17>
@@ -267,13 +267,13 @@ const Home = (props) => {
         location1={
           <Fragment>
             <span className="home-text50">
-              Email: contact@sofishtication.com
+              Email: contact@transparentwaters.com
             </span>
           </Fragment>
         }
         location2={
           <Fragment>
-            <span className="home-text51">Instagram: @sofishtication</span>
+            <span className="home-text51">Instagram: @transparentwaters</span>
           </Fragment>
         }
         location1Description={

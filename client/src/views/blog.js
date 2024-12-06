@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react'
+import React from'react'
 
-import { Helmet } from 'react-helmet'
+import Helmet from'react-helmet'
 
 import Navbar8 from '../components/navbar8'
 import BlogPostHeader2 from '../components/blog-post-header2'
@@ -9,10 +9,10 @@ import BlogPostHeader22 from '../components/blog-post-header22'
 import BlogPostHeader23 from '../components/blog-post-header23'
 import BlogPostHeader24 from '../components/blog-post-header24'
 import Footer41 from '../components/footer41'
-import './blog.css'
+import blogStylesheet from'./blog.css'
 
 const Blog = (props) => {
-  return (
+
     <div className="blog-container">
       <Helmet>
         <title>Blog - Rapid Radiant Zebra</title>
@@ -278,7 +278,7 @@ const Blog = (props) => {
         }
       ></Footer41>
     </div>
-  )
+  
 }
 
 export default Blog

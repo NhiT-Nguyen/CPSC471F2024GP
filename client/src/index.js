@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import ReactDOM from 'react-dom'
 import {
   BrowserRouter as Router,
@@ -16,6 +16,7 @@ import NotFound from './views/not-found'
 const App = () => {
   return (
     <Router>
+      <GetBlogPosts />
       <Switch>
         <Route component={Shop} exact path="/shop" />
         <Route component={Blog} exact path="/blog" />
@@ -26,5 +27,28 @@ const App = () => {
     </Router>
   )
 }
+
+function GetBlogPosts() {
+  const [content, setContent] = useState(null);
+  useEffect(() => {
+    fetch("http://localhost:3000/blog/posts", {
+      method: "GET",
+
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setContent(data);
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+  return (
+    <div>
+      <h2>{new String(content)}</h2>
+    </div>
+  );
+}
+
+
 
 ReactDOM.render(<App />, document.getElementById('app'))
