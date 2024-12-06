@@ -21,7 +21,7 @@ const Steps2 = (props) => {
             </p>
             <div className="steps2-actions">
               <button className="thq-button-animated thq-button-filled steps2-button">
-                <span className="thq-body-small">Main action</span>
+                <span className="thq-body-small">Vist our Store</span>
               </button>
             </div>
           </div>

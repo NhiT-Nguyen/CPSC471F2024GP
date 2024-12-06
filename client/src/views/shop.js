@@ -56,7 +56,7 @@ const Shop = (props) => {
         }
         action1={
           <Fragment>
-            <span className="shop-text18">Main Action</span>
+            <span className="shop-text18">MVisit our Store</span>
           </Fragment>
         }
         action2={

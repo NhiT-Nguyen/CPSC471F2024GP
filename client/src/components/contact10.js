@@ -40,7 +40,7 @@ const Contact10 = (props) => {
               {props.location1 ?? (
                 <Fragment>
                   <span className="contact10-text19">
-                    Email: contact@fishingblog.com
+                    Email: contact@transparentwaters.com
                   </span>
                 </Fragment>
               )}
@@ -76,7 +76,7 @@ const Contact10 = (props) => {
               {props.location2 ?? (
                 <Fragment>
                   <span className="contact10-text22">
-                    Social Media: @fishingblog
+                    Social Media: @transparentwaters
                   </span>
                 </Fragment>
               )}

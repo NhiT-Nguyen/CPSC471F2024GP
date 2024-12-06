@@ -80,7 +80,7 @@ const Navbar8 = (props) => {
               <span>
                 {props.action1 ?? (
                   <Fragment>
-                    <span className="navbar8-text25">Main Action</span>
+                    <span className="navbar8-text25">Visit our Shop</span>
                   </Fragment>
                 )}
               </span>
@@ -282,7 +282,7 @@ const Navbar8 = (props) => {
                 <span>
                   {props.action1 ?? (
                     <Fragment>
-                      <span className="navbar8-text25">Main Action</span>
+                      <span className="navbar8-text25">Visit our Store</span>
                     </Fragment>
                   )}
                 </span>
