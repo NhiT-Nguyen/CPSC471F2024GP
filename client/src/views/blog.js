@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 
 import { Helmet } from 'react-helmet'
 
@@ -18,6 +18,8 @@ const Blog = (props) => {
         <title>Blog - Transparent Waters</title>
         <meta property="og:title" content="Blog - Rapid Radiant Zebra" />
       </Helmet>
+      <GetBlogPosts />
+
       <Navbar8
         link1={
           <Fragment>
@@ -36,27 +38,27 @@ const Blog = (props) => {
         }
         link4={
           <Fragment>
-            <span className="blog-text13">/contact</span>
+            <span className="blog-text13">/General Info</span>
           </Fragment>
         }
         page1={
           <Fragment>
-            <span className="blog-text14">Home</span>
+            <span className="blog-text14">Fish</span>
           </Fragment>
         }
         page2={
           <Fragment>
-            <span className="blog-text15">Blog</span>
+            <span className="blog-text15">Fishing Locations</span>
           </Fragment>
         }
         page3={
           <Fragment>
-            <span className="blog-text16">Shop</span>
+            <span className="blog-text16">Fishing Lures</span>
           </Fragment>
         }
         page4={
           <Fragment>
-            <span className="blog-text17">Contact</span>
+            <span className="blog-text17">Find a Fishing Buddy</span>
           </Fragment>
         }
         action1={
@@ -89,6 +91,9 @@ const Blog = (props) => {
             <span className="blog-text23">Page Four Description</span>
           </Fragment>
         }
+        link1Url="/"
+        link2Url="/blog"
+        link3Url="/shop"
       ></Navbar8>
       <BlogPostHeader2
         date={
@@ -279,6 +284,27 @@ const Blog = (props) => {
       ></Footer41>
     </div>
   )
+}
+
+function GetBlogPosts() {
+  const [content, setContent] = useState(null);
+  useEffect(() => {
+    fetch("http://localhost:3000/blog/posts", {
+      method: "GET",
+
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setContent(data);
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+  return (
+    <div>
+      <h2>{new String(content)}</h2>
+    </div>
+  );
 }
 
 export default Blog

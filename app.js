@@ -3,7 +3,9 @@ const cors = require('cors')
 const db = require('./backend/config/db');
 const app = express();
 const port = process.env.PORT || 3000;
+
 const blogRoutes = require('./backend/routes/blogRoutes');
+const commentRoutes = require('./backend/routes/commentRoutes');
 
 app.use(cors());
 
@@ -14,6 +16,7 @@ app.listen(port, () => {
 }   );
 
 app.use('/blog', blogRoutes);
+app.use('/comments', commentRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 
 import { Helmet } from 'react-helmet'
 
@@ -16,8 +16,11 @@ const Home = (props) => {
     <div className="home-container">
       <Helmet>
         <title>Transparent Waters</title>
-        <meta property="og:title" content="Rapid Radiant Zebra" />
+        <meta property="og:title" content="Transparent Waters" />
       </Helmet>
+      <div>
+        <GetComments/>
+      </div>
       <Navbar8
         link1={
           <Fragment>
@@ -36,27 +39,27 @@ const Home = (props) => {
         }
         link4={
           <Fragment>
-            <span className="home-text13">/contact</span>
+            <span className="home-text13">/General Info</span>
           </Fragment>
         }
         page1={
           <Fragment>
-            <span className="home-text14">Home</span>
+            <span className="home-text14">Fish</span>
           </Fragment>
         }
         page2={
           <Fragment>
-            <span className="home-text15">Blog</span>
+            <span className="home-text15">Fishing Locations</span>
           </Fragment>
         }
         page3={
           <Fragment>
-            <span className="home-text16">Shop</span>
+            <span className="home-text16">Fishing Lures</span>
           </Fragment>
         }
         page4={
           <Fragment>
-            <span className="home-text17">Contact</span>
+            <span className="home-text17">Find a Fishing Buddy</span>
           </Fragment>
         }
         action1={
@@ -89,6 +92,9 @@ const Home = (props) => {
             <span className="home-text23">Page Four Description</span>
           </Fragment>
         }
+        link1Url="/"
+        link2Url="/blog"
+        link3Url="/shop"
       ></Navbar8>
       <Hero17
         action1={
@@ -337,6 +343,27 @@ const Home = (props) => {
       ></Footer4>
     </div>
   )
+}
+
+function GetComments() {
+  const [comments, setComments] = useState(null);
+  useEffect(() => {
+    fetch("http://localhost:3000/comments/comments", {
+      method: "GET",
+
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setComments(data);
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+  return (
+    <div>
+      <h2>{new String(comments)}</h2>
+    </div>
+  );
 }
 
 export default Home

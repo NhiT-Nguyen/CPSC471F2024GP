@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 
 import PropTypes from 'prop-types'
 
@@ -138,6 +138,27 @@ BlogPostHeader2.propTypes = {
   avatarName: PropTypes.element,
   blogPostImageAlt: PropTypes.string,
   blogPostImageSrc: PropTypes.string,
+}
+
+function GetBlogPosts() {
+  const [content, setContent] = useState(null);
+  useEffect(() => {
+    fetch("http://localhost:3000/blog/posts", {
+      method: "GET",
+
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setContent(data);
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+  return (
+    <div>
+      <h2>{new String(content)}</h2>
+    </div>
+  );
 }
 
 export default BlogPostHeader2

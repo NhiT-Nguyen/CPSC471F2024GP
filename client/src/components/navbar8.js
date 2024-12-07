@@ -53,7 +53,7 @@ const Navbar8 = (props) => {
               <span className="thq-link thq-body-small">
                 {props.link4 ?? (
                   <Fragment>
-                    <span className="navbar8-text21">/contact</span>
+                    <span className="navbar8-text21">/General Info</span>
                   </Fragment>
                 )}
               </span>
@@ -142,7 +142,7 @@ const Navbar8 = (props) => {
                   <span className="thq-link thq-body-small">
                     {props.link4 ?? (
                       <Fragment>
-                        <span className="navbar8-text21">/contact</span>
+                        <span className="navbar8-text21">/General Info</span>
                       </Fragment>
                     )}
                   </span>
@@ -176,7 +176,7 @@ const Navbar8 = (props) => {
                           <span className="navbar8-page11 thq-body-large">
                             {props.page1 ?? (
                               <Fragment>
-                                <span className="navbar8-text22">Home</span>
+                                <span className="navbar8-text22">Fish</span>
                               </Fragment>
                             )}
                           </span>
@@ -203,7 +203,7 @@ const Navbar8 = (props) => {
                           <span className="navbar8-page21 thq-body-large">
                             {props.page2 ?? (
                               <Fragment>
-                                <span className="navbar8-text17">Blog</span>
+                                <span className="navbar8-text17">Fishing Locations</span>
                               </Fragment>
                             )}
                           </span>
@@ -230,7 +230,7 @@ const Navbar8 = (props) => {
                           <span className="navbar8-page31 thq-body-large">
                             {props.page3 ?? (
                               <Fragment>
-                                <span className="navbar8-text24">Shop</span>
+                                <span className="navbar8-text24">Fishing Lures</span>
                               </Fragment>
                             )}
                           </span>
@@ -257,7 +257,7 @@ const Navbar8 = (props) => {
                           <span className="navbar8-page41 thq-body-large">
                             {props.page4 ?? (
                               <Fragment>
-                                <span className="navbar8-text13">Contact</span>
+                                <span className="navbar8-text13">Find a Fishing Buddy</span>
                               </Fragment>
                             )}
                           </span>
@@ -448,22 +448,22 @@ Navbar8.defaultProps = {
   logoSrc:
     'https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/84ec08e8-34e9-42c7-9445-d2806d156403/fac575ac-7a41-484f-b7ac-875042de11f8?org_if_sml=1&force_format=original',
   page4: undefined,
-  link2Url: 'https://www.teleporthq.io',
-  linkUrlPage4: 'https://www.teleporthq.io',
-  linkUrlPage1: 'https://www.teleporthq.io',
+  link2Url: '/blog',
+  linkUrlPage4: '',
+  linkUrlPage1: '',
   page3Description: undefined,
   action2: undefined,
-  linkUrlPage2: 'https://www.teleporthq.io',
+  linkUrlPage2: '',
   page2ImageAlt: 'image',
   page2Description: undefined,
-  link1Url: 'https://www.teleporthq.io',
+  link1Url: '/',
   page2: undefined,
   link1: undefined,
   page3ImageAlt: 'image',
   page4Description: undefined,
   page4ImageSrc:
     'https://images.unsplash.com/photo-1474649111648-d95d30755186?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczMjAzODYyNHw&ixlib=rb-4.0.3&q=80&w=1080',
-  link3Url: 'https://www.teleporthq.io',
+  link3Url: '/shop',
   page1ImageAlt: 'image',
   logoAlt: 'Fishing Blog Logo',
   page1ImageSrc:
@@ -473,7 +473,7 @@ Navbar8.defaultProps = {
     'https://images.unsplash.com/photo-1506126613408-eca07ce68773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczMjAzODYyNHw&ixlib=rb-4.0.3&q=80&w=1080',
   link3: undefined,
   link4: undefined,
-  linkUrlPage3: 'https://www.teleporthq.io',
+  linkUrlPage3: '/',
   page1: undefined,
   page1Description: undefined,
   page3: undefined,

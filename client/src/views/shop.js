@@ -10,8 +10,8 @@ const Shop = (props) => {
   return (
     <div className="shop-container">
       <Helmet>
-        <title>Shop - Rapid Radiant Zebra</title>
-        <meta property="og:title" content="Shop - Rapid Radiant Zebra" />
+        <title>Shop - Transparent Waters</title>
+        <meta property="og:title" content="Shop - Transparent Waters"/>
       </Helmet>
       <Navbar8
         link1={
@@ -31,32 +31,32 @@ const Shop = (props) => {
         }
         link4={
           <Fragment>
-            <span className="shop-text13">/contact</span>
+            <span className="shop-text13">/General Info</span>
           </Fragment>
         }
         page1={
           <Fragment>
-            <span className="shop-text14">Home</span>
+            <span className="shop-text14">Fish</span>
           </Fragment>
         }
         page2={
           <Fragment>
-            <span className="shop-text15">Blog</span>
+            <span className="shop-text15">Fishing Locations</span>
           </Fragment>
         }
         page3={
           <Fragment>
-            <span className="shop-text16">Shop</span>
+            <span className="shop-text16">Fishing Lures</span>
           </Fragment>
         }
         page4={
           <Fragment>
-            <span className="shop-text17">Contact</span>
+            <span className="shop-text17">Water Safety</span>
           </Fragment>
         }
         action1={
           <Fragment>
-            <span className="shop-text18">MVisit our Store</span>
+            <span className="shop-text18">Login</span>
           </Fragment>
         }
         action2={
@@ -64,8 +64,10 @@ const Shop = (props) => {
             <span className="shop-text19">Secondary Action</span>
           </Fragment>
         }
+        link1Url="/"
         link2Url="/blog"
         link3Url="/shop"
+        action1Url="/shop"
         page1Description={
           <Fragment>
             <span className="shop-text20">Page One Description</span>
@@ -86,7 +88,6 @@ const Shop = (props) => {
             <span className="shop-text23">Page Four Description</span>
           </Fragment>
         }
-        link1Url="/"
       ></Navbar8>
       <Gallery14
         image1Description={
@@ -134,7 +135,7 @@ const Shop = (props) => {
         }
         heading1={
           <Fragment>
-            <span className="shop-text31">SoFISHticated Gear</span>
+            <span className="shop-text31">Transparent Waters</span>
           </Fragment>
         }
       ></Gallery14>

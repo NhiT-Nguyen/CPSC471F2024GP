@@ -16,7 +16,6 @@ import NotFound from './views/not-found'
 const App = () => {
   return (
     <Router>
-      <GetBlogPosts />
       <Switch>
         <Route component={Shop} exact path="/shop" />
         <Route component={Blog} exact path="/blog" />
@@ -43,12 +42,30 @@ function GetBlogPosts() {
       .catch((error) => console.log(error));
   }, []);
   return (
-    <div>
       <h2>{new String(content)}</h2>
-    </div>
   );
 }
 
+function GetComments() {
+  const [comments, setComments] = useState(null);
+  useEffect(() => {
+    fetch("http://localhost:3000/comments", {
+      method: "GET",
+
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setComments(data);
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+  return (
+    <div>
+      <h2>{new String(comments)}</h2>
+    </div>
+  );
+}
 
 
 ReactDOM.render(<App />, document.getElementById('app'))
