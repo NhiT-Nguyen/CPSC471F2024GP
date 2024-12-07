@@ -77,10 +77,80 @@ const deleteCart = (req, res) => {
     });
 };
 
+const addItemToCart = (req, res) => {
+    const { cartId, itemId, quantity } = req.body;
+    if (!cartId || !itemId || !quantity) {
+        res.status(400).send('CartID, ItemID, and Quantity are required');
+        return;
+    }
+    cartModel.addItemToCart(cartId, itemId, quantity, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.status(201).json({ message: 'Item added to cart successfully' });
+    });
+}
+
+const updateItemQuantityInCart = (req, res) => {
+    const { cartId, itemId, quantity } = req.body;
+    if (!cartId || !itemId || !quantity) {
+        res.status(400).send('CartID, ItemID, and Quantity are required');
+        return;
+    }
+    cartModel.updateItemQuantityInCart(cartId, itemId, quantity, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.json({ message: 'Item quantity updated successfully' });
+    });
+}
+
+const deleteItemFromCart = (req, res) => {
+    const { cartId, itemId } = req.params;
+    cartModel.deleteItemFromCart(cartId, itemId, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.json({ message: 'Item deleted from cart successfully' });
+    });
+}
+
+const getItemsInCart = (req, res) => {
+    const { cartId } = req.params;
+    cartModel.getItemsInCart(cartId, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.json(results);
+    });
+}
+
+const getCartTotal = (req, res) => {
+    const { cartId } = req.params;
+    cartModel.getCartTotal(cartId, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.json(results[0]);
+    });}
+
+
+
+
 module.exports = {
     getCartById,
     getCartByMember,
     createCart,
     updateCartStatus,
     deleteCart,
+    addItemToCart,
+    updateItemQuantityInCart,
+    deleteItemFromCart,
+    getItemsInCart,
+    getCartTotal
 };

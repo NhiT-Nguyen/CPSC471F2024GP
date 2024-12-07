@@ -74,11 +74,47 @@ const deleteGear = (req, res) => {
     });
 };
 
+const addFishingTypeToGear = (req, res) => {
+    const { itemId, fishingType } = req.body;
+    fishingGearModel.addFishingTypeToGear(itemId, fishingType, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.json({ message: 'Fishing type added to gear item' });
+    });
+};
+
+const getFishingTypesForGear = (req, res) => {
+    const { itemId } = req.params;
+    fishingGearModel.getFishingTypesForGear(itemId, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.json(results);
+    });
+};
+
+const deleteFishingTypeFromGear = (req, res) => {
+    const { itemId, fishingType } = req.body;
+    fishingGearModel.deleteFishingTypeFromGear(itemId, fishingType, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.json({ message: 'Fishing type deleted from gear item' });
+    });
+};
+
 module.exports = {
     getFishingGear,
     getGearById,
     createGear,
     updateStock,
     updatePrice,
-    deleteGear
+    deleteGear,
+    addFishingTypeToGear,
+    getFishingTypesForGear,
+    deleteFishingTypeFromGear
 };

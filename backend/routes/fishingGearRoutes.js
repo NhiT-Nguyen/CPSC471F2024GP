@@ -20,4 +20,13 @@ router.put('/gear/:itemId/price', fishingGearController.updatePrice);
 // delete fishing gear item
 router.delete('/gear/:itemId', fishingGearController.deleteGear);
 
+// add fishing type to gear item
+router.post('/gear/fishingtype/:itemId', fishingGearController.addFishingTypeToGear);
+
+// get fishing types for a gear item
+router.get('/gear/fishingtype/:itemId', fishingGearController.getFishingTypesForGear);
+
+// delete a fishing type from a gear item
+router.delete('/gear/fishingtype/:itemId/:fishingType', fishingGearController.deleteFishingTypeFromGear);
+
 module.exports = router;

@@ -17,4 +17,19 @@ router.put('/cart/status/:cartId', cartController.updateCartStatus);
 // Delete cart by CartID
 router.delete('/cart/:cartId', cartController.deleteCart);
 
+// Add item to cart
+router.post('/cart/item', cartController.addItemToCart);
+
+// Remove item from cart
+router.delete('/cart/item', cartController.deleteItemFromCart);
+
+// Update item quantity in cart
+router.put('/cart/item', cartController.updateItemQuantityInCart);
+
+// Get items in cart
+router.get('/cart/items/:cartId', cartController.getItemsInCart);
+
+// Get total of cart
+router.get('/cart/total/:cartId', cartController.getCartTotal);
+
 module.exports = router;

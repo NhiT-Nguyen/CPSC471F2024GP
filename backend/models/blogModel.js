@@ -15,6 +15,21 @@ const createPost = (title,body,authorID,adminFlag, callback) => {
     db.query('INSERT INTO blog_post (title, body, MemAuthUsername, adminPostFlag) VALUES (?, ?, ?,?)', [title, body, authorID,adminFlag], callback);
 }
 
+// Blog location
+const addPostLocation = (postID, locationID, callback) => { 
+    db.query('INSERT INTO took_place_at (PostID, LocationID) VALUES (?, ?)', [postID, locationID], callback);
+}
+
+// update post location
+const updatePostLocation = (postID, locationID, callback) => {
+    db.query('UPDATE took_place_at SET LocationID = ? WHERE PostID = ?', [locationID, postID], callback);
+}
+
+// delete post location
+const deletePostLocation = (postID, callback) => {
+    db.query('DELETE FROM took_place_at WHERE PostID = ?', [postID], callback);
+}
+
 // Update blog post title
 const updatePostTitle = (id, title, callback) => {
     db.query('UPDATE blog_post SET title = ? WHERE PostID = ?', [title, id], callback);
@@ -59,6 +74,48 @@ const deleteImage = (id, callback) => {
 const deleteAllImages = (id, callback) => {
     db.query('DELETE FROM blog_post_images WHERE PostID = ?', [id], callback);
 }
+
+const addFishNameToPost = (postID, fishName, callback) => {
+    db.query('INSERT INTO about (PostID, FishScienceName) VALUES (?, ?)', [postID, fishName], callback);
+}
+
+const updateFishName = (postID, fishName, callback) => {
+    db.query('UPDATE about SET FishScienceName = ? WHERE PostID = ?', [fishName, postID], callback);
+}
+// get fish name by post id
+const getFishName = (postID, callback) => {
+    db.query('SELECT FishScienceName FROM about WHERE PostID = ?', [postID], callback);
+}
+// delete all fish name from post
+const deleteAllFishName = (postID, callback) => {
+    db.query('DELETE FROM about WHERE PostID = ?', [postID], callback);
+}
+
+// delete specific fish name from post
+const deleteFishName = (postID, fishName, callback) => {
+    db.query('DELETE FROM about WHERE PostID = ? AND FishScienceName = ?', [postID, fishName], callback);
+}
+
+// associate post with admins
+const addAdminToPost = (postID, adminUser, callback) => {
+    db.query('INSERT INTO written_by_admin (PostID, AUsername) VALUES (?, ?)', [postID, adminUser], callback);
+}
+
+// get all admins for a post
+const getAdminsForPost = (postID, callback) => {
+    db.query('SELECT AUsername FROM written_by_admin WHERE PostID = ?', [postID], callback);
+}
+
+// delete admin from post
+const deleteAdminFromPost = (postID, adminUser, callback) => {
+    db.query('DELETE FROM written_by_admin WHERE PostID = ? AND AUsername = ?', [postID, adminUser], callback);
+}
+
+// delete all admins from post
+const deleteAllAdminsFromPost = (postID, callback) => {
+    db.query('DELETE FROM written_by_admin WHERE PostID = ?', [postID], callback);
+}
+
 module.exports = {
     getAllPosts,
     getPostById,
@@ -66,5 +123,22 @@ module.exports = {
     updatePostTitle,
     updatePostBody,
     updatePostAdminFlag,
-    deletePost
+    deletePost,
+    getPostImages,
+    getImageById,
+    addImageToPost,
+    deleteImage,
+    deleteAllImages,
+    addPostLocation,
+    updatePostLocation,
+    deletePostLocation,
+    addFishNameToPost,
+    updateFishName,
+    getFishName,
+    deleteAllFishName,
+    deleteFishName,
+    addAdminToPost,
+    getAdminsForPost,
+    deleteAdminFromPost,
+    deleteAllAdminsFromPost
 };
