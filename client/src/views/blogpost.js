@@ -3,15 +3,15 @@ import React, { Fragment, useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 
 import Navbar8 from '../components/navbar8'
-import BlogPostHeader2 from '../components/blog-post-header2'
+import Banner11 from '../components/banner11'
 import Footer41 from '../components/footer41'
 import './blog.css'
 
-const Blog = (props) => {
+const BlogPost = (props) => {
 
   const [content, setContent] = useState(null);
   useEffect(() => {
-    fetch("http://localhost:3000/blog/posts", {
+    fetch(("http://localhost:3000/blog/posts/" + props.match.params.id), {
       method: "GET",
 
     })
@@ -108,35 +108,26 @@ const Blog = (props) => {
         link3Url="/shop"
       ></Navbar8>
 
-
-      {content?.map((content) => (
-              <BlogPostHeader2
-              date={
+{content?.map((content) => (
+              <Banner11
+              heading1={
                 <Fragment>
-                  <span className="blog-text24">{content.Body}</span>
+                  <span className="banner11-text3">{content?.Title}</span>
                 </Fragment>
               }
-              blogPostTitle={
+              content1={
                 <Fragment>
-                  <a href = {`/blog/${content.PostID}`} ><span className="blog-text25">{content.Title}</span></a>
+                  <span className="banner11-text5">{content?.Body}</span>
                 </Fragment>
               }
-              readTime={
-                <Fragment/>
-
-              }
-              category={
+              action1={
                 <Fragment>
-                  <span className="blog-text27">Post ID: {content.PostID}</span>
+                  <span className="banner11-text4">Leave a Comment</span>
                 </Fragment>
               }
-              avatarName={
-                <Fragment>
-                  <span className="blog-text28">{content.MemAuthUsername ?? "Admin"}</span>
-                </Fragment>
-              }
-            ></BlogPostHeader2>
+            ></Banner11>
       ))}
+
 
       <Footer41
         link5={
@@ -185,4 +176,4 @@ const Blog = (props) => {
 }
 
 
-export default Blog
+export default BlogPost

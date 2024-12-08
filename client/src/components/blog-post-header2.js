@@ -140,25 +140,5 @@ BlogPostHeader2.propTypes = {
   blogPostImageSrc: PropTypes.string,
 }
 
-function GetBlogPosts() {
-  const [content, setContent] = useState(null);
-  useEffect(() => {
-    fetch("http://localhost:3000/blog/posts", {
-      method: "GET",
-
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setContent(data);
-        console.log(data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-  return (
-    <div>
-      <h2>{new String(content)}</h2>
-    </div>
-  );
-}
 
 export default BlogPostHeader2

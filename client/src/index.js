@@ -10,6 +10,7 @@ import {
 import './style.css'
 import Shop from './views/shop'
 import Blog from './views/blog'
+import BlogPost from './views/blogpost'
 import Home from './views/home'
 import NotFound from './views/not-found'
 
@@ -18,7 +19,13 @@ const App = () => {
     <Router>
       <Switch>
         <Route component={Shop} exact path="/shop" />
+
+
         <Route component={Blog} exact path="/blog" />
+        <Route component={BlogPost} path="/blog/:id"/>
+
+
+
         <Route component={Home} exact path="/" />
         <Route component={NotFound} path="**" />
         <Redirect to="**" />
