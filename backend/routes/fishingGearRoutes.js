@@ -29,4 +29,20 @@ router.get('/gear/fishingtype/:itemId', fishingGearController.getFishingTypesFor
 // delete a fishing type from a gear item
 router.delete('/gear/fishingtype/:itemId/:fishingType', fishingGearController.deleteFishingTypeFromGear);
 
+// Add admin sourced by
+router.post('/gear/sourcedby/:aUser/:ItemID', fishingGearController.addAdminSourcedBy);
+
+// Get admin sourced by
+router.get('/gear/sourcedby/:ItemID', fishingGearController.getAdminSourcedBy);
+
+// delete all admin sourced by
+router.delete('/gear/sourcedby/:ItemID', fishingGearController.deleteAllAdminSourcedBy);
+
+// delete admin sourced by
+router.delete('/gear/sourcedby/:aUser/:ItemID', fishingGearController.deleteAdminSourcedBy);
+
+// get all gear sourced by a specific admin
+router.get('/gear/sourcedby/:AUsername', fishingGearController.getGearSourcedByAdmin);
+
+
 module.exports = router;

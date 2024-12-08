@@ -49,7 +49,30 @@ const deleteFishingTypeFromGear = (itemId, fishingType, callback) => {
     db.query('DELETE FROM FISHING_TYPES_GEAR WHERE ItemID = ? AND FishingType = ?', [itemId, fishingType], callback);
 };
 
+// Add admin sourced by
+const addAdminSourcedBy = (aUser,ItemID, callback) => {
+    db.query('INSERT INTO SOURCED_BY (AUsername,ItemID) VALUES (?, ?)', [aUser,ItemID], callback);
+};
 
+// Get admin sourced by
+const getAdminSourcedBy = (ItemID, callback) => {
+    db.query('SELECT AUsername FROM SOURCED_BY WHERE ItemID = ?', [ItemID], callback);
+};
+
+// Delete admin sourced by
+const deleteAllAdminSourcedBy = (ItemID, callback) => {
+    db.query('DELETE FROM SOURCED_BY WHERE ItemID = ?', [ItemID], callback);
+};
+
+// delete specific admin sourced by
+const deleteAdminSourcedBy = (ItemID, AUsername, callback) => {
+    db.query('DELETE FROM SOURCED_BY WHERE ItemID = ? AND AUsername = ?', [ItemID, AUsername], callback);
+};
+
+// get all gear sourced by a specific admin
+const getGearSourcedByAdmin = (AUsername, callback) => {
+    db.query('SELECT ItemID FROM SOURCED_BY WHERE AUsername = ?', [AUsername], callback);
+};
 
 module.exports = {
     getAllFishingGear,
@@ -60,5 +83,10 @@ module.exports = {
     deleteGear,
     addFishingTypeToGear,
     getFishingTypesForGear,
-    deleteFishingTypeFromGear
+    deleteFishingTypeFromGear,
+    addAdminSourcedBy,
+    getAdminSourcedBy,
+    deleteAllAdminSourcedBy,
+    deleteAdminSourcedBy,
+    getGearSourcedByAdmin
 };

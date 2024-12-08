@@ -107,6 +107,61 @@ const deleteFishingTypeFromGear = (req, res) => {
     });
 };
 
+const addAdminSourcedBy = (req, res) => {
+    const { aUser, ItemID } = req.body;
+    fishingGearModel.addAdminSourcedBy(aUser, ItemID, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.json({ message: 'Admin sourced by added' });
+    });
+}
+
+const getAdminSourcedBy = (req, res) => {
+    const { ItemID } = req.params;
+    fishingGearModel.getAdminSourcedBy(ItemID, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.json(results);
+    });
+}
+
+const deleteAllAdminSourcedBy = (req, res) => {
+    const { ItemID } = req.params;
+    fishingGearModel.deleteAllAdminSourcedBy(ItemID, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.json({ message: 'All admin sourced by deleted' });
+    });
+}
+
+const deleteAdminSourcedBy = (req, res) => {
+    const { ItemID, AUsername } = req.body;
+    fishingGearModel.deleteAdminSourcedBy(ItemID, AUsername, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.json({ message: 'Admin sourced by deleted' });
+    });
+}
+
+const getGearSourcedByAdmin = (req, res) => {
+    const { AUsername } = req.params;
+    fishingGearModel.getGearSourcedByAdmin(AUsername, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.json(results);
+    });
+}
+
 module.exports = {
     getFishingGear,
     getGearById,
@@ -116,5 +171,10 @@ module.exports = {
     deleteGear,
     addFishingTypeToGear,
     getFishingTypesForGear,
-    deleteFishingTypeFromGear
+    deleteFishingTypeFromGear,
+    addAdminSourcedBy,
+    getAdminSourcedBy,
+    deleteAllAdminSourcedBy,
+    deleteAdminSourcedBy,
+    getGearSourcedByAdmin
 };
