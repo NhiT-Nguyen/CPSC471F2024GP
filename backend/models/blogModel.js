@@ -1,5 +1,5 @@
 const db = require('../config/db');
-
+const utils = require('../db/dbUtils');
 // get all blog posts
 const getAllPosts = (callback) => {
     db.query('SELECT * FROM blog_post', callback);
@@ -116,6 +116,48 @@ const deleteAllAdminsFromPost = (postID, callback) => {
     db.query('DELETE FROM written_by_admin WHERE PostID = ?', [postID], callback);
 }
 
+// add gear to mentioned_in table
+const addGearToPost = (postID, gearID, callback) => {
+    // check if post exists
+    utils.doesPostExist(postID, (err, exists) => {
+        if (err) {
+            return callback(err, null);
+        }
+
+        if (!exists) {
+            return callback(new Error('Post does not exist'), null);
+        }
+
+        // check if gear exists
+        utils.doesGearExist(gearID, (err, exists) => {
+            if (err) {
+                return callback(err, null);
+            }
+
+            if (!exists) {
+                return callback(new Error('Gear does not exist'), null);
+            }
+
+            db.query('INSERT INTO mentioned_in (PostID, ItemID) VALUES (?, ?)', [postID, gearID], callback);
+        });
+    });
+}
+
+// get gear for a post
+const getGearForPost = (postID, callback) => {
+    db.query('SELECT ItemID FROM mentioned_in WHERE PostID = ?', [postID], callback);
+}
+
+// delete gear from post
+const deleteGearFromPost = (postID, gearID, callback) => {
+    db.query('DELETE FROM mentioned_in WHERE PostID = ? AND ItemID = ?', [postID, gearID], callback);
+}
+
+// delete all gear from post
+const deleteAllGearFromPost = (postID, callback) => {
+    db.query('DELETE FROM mentioned_in WHERE PostID = ?', [postID], callback);
+}
+
 module.exports = {
     getAllPosts,
     getPostById,
@@ -140,5 +182,9 @@ module.exports = {
     addAdminToPost,
     getAdminsForPost,
     deleteAdminFromPost,
-    deleteAllAdminsFromPost
+    deleteAllAdminsFromPost,
+    addGearToPost,
+    getGearForPost,
+    deleteGearFromPost,
+    deleteAllGearFromPost
 };

@@ -75,5 +75,17 @@ router.delete('/posts/:postID/fish', blogController.deleteAllFishName);
 //delete fish name
 router.delete('/posts/:postID/fish/:fishName', blogController.deleteFishName);
 
+// add gear to post
+router.post('/posts/gear', blogController.addGearToPost);
+
+// get gear for post
+router.get('/posts/:postID/gear', blogController.getGearForPost);
+
+// delete gear from post
+router.delete('/posts/:postID/gear/:gearID', blogController.deleteGearFromPost);
+
+// delete all gear from post
+router.delete('/posts/:postID/gear', blogController.deleteAllGearFromPost);
+
 
 module.exports = router;

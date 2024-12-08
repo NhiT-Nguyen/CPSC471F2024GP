@@ -49,6 +49,8 @@ const deleteFishingTypeFromGear = (itemId, fishingType, callback) => {
     db.query('DELETE FROM FISHING_TYPES_GEAR WHERE ItemID = ? AND FishingType = ?', [itemId, fishingType], callback);
 };
 
+
+
 module.exports = {
     getAllFishingGear,
     getGearById,

@@ -340,6 +340,58 @@ const deleteAllAdminsFromPost = (req, res) => {
   });
 }
 
+const addGearToPost = (req, res) => {
+  const { postID, gearID } = req.body;
+  if (!postID || !gearID) {
+    res.status(400).send('PostID and GearID are required');
+    return;
+  }
+  blogModel.addGearToPost(postID, gearID, (err, results) => {
+    if (err) {
+      res.status(500).send('Database query error');
+      return;
+    }
+    res.json(results);
+  });
+}
+
+const getGearForPost = (req, res) => {
+  const { postID } = req.params;
+  blogModel.getGearForPost(postID, (err, results) => {
+    if (err) {
+      res.status(500).send('Database query error');
+      return;
+    }
+    res.json(results);
+  });
+}
+
+const deleteGearFromPost = (req, res) => {
+  const { postID, gearID } = req.body;
+  if (!postID || !gearID) {
+    res.status(400).send('PostID and GearID are required');
+    return;
+  }
+  blogModel.deleteGearFromPost(postID, gearID, (err, results) => {
+    if (err) {
+      res.status(500).send('Database query error');
+      return;
+    }
+    res.json(results);
+  });
+}
+
+const deleteAllGearFromPost = (req, res) => {
+  const { postID } = req.params;
+  blogModel.deleteAllGearFromPost(postID, (err, results) => {
+    if (err) {
+      res.status(500).send('Database query error');
+      return;
+    }
+    res.json(results);
+  });
+}
+
 module.exports = {
   getPosts,
   getPost,
@@ -364,5 +416,9 @@ module.exports = {
   addAdminToPost,
   getAdminsForPost,
   deleteAdminFromPost,
-  deleteAllAdminsFromPost
+  deleteAllAdminsFromPost,
+  addGearToPost,
+  getGearForPost,
+  deleteGearFromPost,
+  deleteAllGearFromPost
 };

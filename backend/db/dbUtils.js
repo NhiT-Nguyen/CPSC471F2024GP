@@ -79,7 +79,34 @@ const checkTransactionCart = (cartId, callback) => {
 }
 
     
+//function to check if post exists
+const doesPostExist = (postId, callback) => {
+    db.query('SELECT * FROM blog_post WHERE PostID = ?', [postId], (err, result) => {
+        if (err) {
+            return callback(err, null);
+        }
 
+        if (result.length === 0) {
+            return callback(null, false);
+        }
+
+        return callback(null, true);
+    });
+}
+
+const doesGearExist = (gearId, callback) => {
+    db.query('SELECT * FROM fishing_gear WHERE ItemID = ?', [gearId], (err, result) => {
+        if (err) {
+            return callback(err, null);
+        }
+
+        if (result.length === 0) {
+            return callback(null, false);
+        }
+
+        return callback(null, true);
+    });
+}
 
 
 
