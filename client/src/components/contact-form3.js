@@ -5,6 +5,25 @@ import PropTypes from 'prop-types'
 import './contact-form3.css'
 
 const ContactForm3 = (props) => {
+    const [content, setContent] = useState(null);
+    useEffect(() => {
+      fetch("http://localhost:3000/blog/posts", {
+        method: "POST",
+        body: {
+            title:  "",
+            body: "",
+            authID: "",
+            MemAuthUsername: ""
+        }
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setContent(data);
+          console.log(data);
+        })
+        .catch((error) => console.log(error));
+    }, []);
+
   return (
     <div className="contact-form3-contact9 thq-section-padding">
       <div className="thq-flex-row thq-section-max-width contact-form3-max-width">
@@ -27,7 +46,10 @@ const ContactForm3 = (props) => {
               </h2>
             </div>
           </div>
-          <form className="thq-card">
+          <form className="thq-card"  onSubmit={(e) => {
+            e.preventDefault()
+            FETCHFETCH
+          }}>
             <div className="contact-form3-input1">
               <label htmlFor="contact-form-3-name" className="thq-body-small">
                 Title
@@ -38,6 +60,8 @@ const ContactForm3 = (props) => {
                 placeholder="Title"
                 rows="Title"
                 className="thq-input"
+                value={content}
+                onChange={(e) => setTitle(e.target.textContent)}
               />
             </div>
             <div className="contact-form3-input2">

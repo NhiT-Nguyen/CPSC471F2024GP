@@ -18,9 +18,6 @@ const Home = (props) => {
         <title>Transparent Waters</title>
         <meta property="og:title" content="Transparent Waters" />
       </Helmet>
-      <div>
-        <GetComments/>
-      </div>
       <Navbar8
         link1={
           <Fragment>

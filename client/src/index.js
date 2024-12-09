@@ -19,13 +19,8 @@ const App = () => {
     <Router>
       <Switch>
         <Route component={Shop} exact path="/shop" />
-
-
         <Route component={Blog} exact path="/blog" />
         <Route component={BlogPost} path="/blog/:id"/>
-
-
-
         <Route component={Home} exact path="/" />
         <Route component={NotFound} path="**" />
         <Redirect to="**" />

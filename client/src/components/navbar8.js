@@ -472,7 +472,7 @@ Navbar8.defaultProps = {
     'https://images.unsplash.com/photo-1506126613408-eca07ce68773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczMjAzODYyNHw&ixlib=rb-4.0.3&q=80&w=1080',
   link3: undefined,
   link4: undefined,
-  linkUrlPage3: '/',
+  linkUrlPage3: '',
   page1: undefined,
   page1Description: undefined,
   page3: undefined,
