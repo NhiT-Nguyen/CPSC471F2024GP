@@ -9,8 +9,10 @@ import {
 
 import './style.css'
 import Login from './views/login'
+import SignUp from './views/signup'
 
 import Shop from './views/shop'
+import ShopItem from './views/shopitem'
 
 import Blog from './views/blog'
 import BlogPost from './views/blogpost'
@@ -19,7 +21,9 @@ import BlogForm from './views/blogform'
 import Home from './views/home'
 
 import Fish from './views/fish'
+import FishForm from './views/fishform'
 import FishingLocations from './views/fishinglocations'
+import LocationForm from './views/fishinglocationform'
 
 import NotFound from './views/not-found'
 
@@ -28,7 +32,9 @@ const App = () => {
     <Router>
       <Switch>
           <Route component={Login} exact path="/login" />
+          <Route component={SignUp} exact path="/signup" />
           <Route component={Shop} exact path="/shop" />
+          <Route component={ShopItem} exact path="/shop/:id" />
 
           <Route component={Blog} exact path="/blog" />
           <Route component={BlogPost} path="/blog/:id"/>
@@ -37,7 +43,10 @@ const App = () => {
           <Route component={Home} exact path="/" />
 
           <Route component={Fish} exact path="/fish" />
+          <Route component={FishForm} path ="/fish/new"/>
           <Route component={FishingLocations} exact path="/locations" />
+          <Route component={LocationForm} path ="/locations/new"/>
+
           <Route component={NotFound} path="**" />
           <Redirect to="**" />
       </Switch>

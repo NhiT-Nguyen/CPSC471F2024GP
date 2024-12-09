@@ -95,7 +95,7 @@ const Fish = (props) => {
         }
         action1={
           <Fragment>
-            <span className="banner11-text4">Submit a fish post</span>
+            <span className="banner11-text4">Submit a new fish</span>
           </Fragment>
         }
         buttonUrl={'/fish/new'}
@@ -111,7 +111,7 @@ const Fish = (props) => {
               }
               blogPostTitle={
                 <Fragment>
-                  <a href = {`/fish/${content.ScientificName}`} ><span className="blog-text25">{content.ScientificName}</span></a>
+                  <a href = {'https://example/com'} ><span className="blog-text25">{content.ScientificName}</span></a>
                 </Fragment>
               }
               readTime={

@@ -120,6 +120,7 @@ const SignIn1 = (props) => {
             <div className="sign-in1-divider3"></div>
           </div>
           <button type="button" className="sign-in1-button2 thq-button-outline">
+            <a href={props.newAccount}>
             <span className="sign-in1-text19 thq-body-small">
               {props.action2 ?? (
                 <Fragment>
@@ -127,6 +128,7 @@ const SignIn1 = (props) => {
                 </Fragment>
               )}
             </span>
+            </a>
           </button>
         </div>
       </div>
@@ -139,6 +141,7 @@ SignIn1.defaultProps = {
   action2: undefined,
   action1: undefined,
   content1: undefined,
+  newAccount: '/signup'
 }
 
 SignIn1.propTypes = {
@@ -146,6 +149,7 @@ SignIn1.propTypes = {
   action2: PropTypes.element,
   action1: PropTypes.element,
   content1: PropTypes.element,
+  newAccount: PropTypes.string
 }
 
 export default SignIn1

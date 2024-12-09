@@ -37,7 +37,7 @@
   align-items: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
-  max-width: 50%;
+  max-width: 100%;
 }
 .blog-post-header2-author {
   gap: var(--dl-space-space-halfunit);
@@ -55,8 +55,6 @@
   align-items: flex-start;
 }
 .blog-post-header2-container {
-  flex: 1;
-  flex-grow:1;
   width: 100%;
   height: 100%;
   height: 560px;
@@ -70,7 +68,7 @@
   width: 100%;
   height: 100%;
   flex-grow: 1;
-  overflow:visible;
+  overflow: visible;
 }
 .blog-post-header2-text16 {
   display: inline-block;

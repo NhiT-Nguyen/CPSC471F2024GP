@@ -91,9 +91,10 @@ const Shop = (props) => {
               }
               image1Description={
                 <Fragment>
-                  <span className="blog-text25">${content?.Price}</span>
+                  <span className="blog-text25"> ${content?.Price}</span>
                 </Fragment>
               }
+              titleURL={`/shop/${content.ItemID}`}
             ></Gallery14>
       ))}
 

@@ -17,13 +17,17 @@ const Gallery14 = (props) => {
               src={props.image1Src}
               className="gallery14-image1 thq-img-ratio-4-3"
             />
-            <span className="thq-body-small">
-              {props.image1Title ?? (
-                <Fragment>
-                  <span className="gallery14-text24">Title</span>
-                </Fragment>
-              )}
-            </span>
+          <a href={props.titleURL}>
+            <span className="thq-heading-3">
+                {props.image1Title ?? (
+                  <Fragment>
+                      <span className="gallery14-text24">Title</span>
+                  </Fragment>
+
+                )}
+              </span>
+          </a>
+
             <span className="gallery14-text13 thq-body-small">
               {props.image1Description ?? (
                 <Fragment>
@@ -41,6 +45,7 @@ const Gallery14 = (props) => {
 }
 
 Gallery14.defaultProps = {
+  titleURL: '/',
   image1Alt: 'Fishing in the sunset',
   image2Src:
     'https://images.unsplash.com/photo-1682342268486-85b915bcfe4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczMjYzOTk4N3w&ixlib=rb-4.0.3&q=80&w=1080',
@@ -61,9 +66,10 @@ Gallery14.defaultProps = {
 }
 
 Gallery14.propTypes = {
+  titleURL: PropTypes.string,
   image1Alt: PropTypes.string,
   image2Src: PropTypes.string,
-  image1Description: PropTypes.string,
+  image1Description: PropTypes.element,
   image3Description: PropTypes.element,
   image3Src: PropTypes.string,
   content1: PropTypes.element,
@@ -71,7 +77,7 @@ Gallery14.propTypes = {
   image2Description: PropTypes.string,
   image2Title: PropTypes.element,
   image3Title: PropTypes.element,
-  image1Title: PropTypes.string,
+  image1Title: PropTypes.element,
   image3Alt: PropTypes.string,
   image1Src: PropTypes.string,
   heading1: PropTypes.element,

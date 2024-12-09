@@ -3,34 +3,21 @@ import React, { Fragment, useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 
 import Navbar8 from '../components/navbar8'
+import ShopItem1 from '../components/shop-item1'
 import Footer41 from '../components/footer41'
-import './home.css'
-import SignIn1 from '../components/sign-in1'
+import './blog.css'
 
-const Login = (props) => {
+const ShopItem = (props) => {
 
-  const [members, setMembers] = useState(null);
-  const [admins, setAdmins] = useState(null);
-
+  const [content, setContent] = useState(null);
   useEffect(() => {
-    fetch("http://localhost:3000/members/members", {
+    fetch(("http://localhost:3000/gear/gear/" + props.match.params.id), {
       method: "GET",
+
     })
       .then((response) => response.json())
       .then((data) => {
-        setMembers(data);
-        console.log(data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-  useEffect(() => {
-    fetch("http://localhost:3000/members/admins", {
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setAdmins(data);
+        setContent(data);
         console.log(data);
       })
       .catch((error) => console.log(error));
@@ -41,8 +28,8 @@ const Login = (props) => {
   return (
     <div className="blog-container">
       <Helmet>
-        <title>Transparent Waters</title>
-        <meta property="og:title" content="Transparent Waters" />
+        <title>Shop - Transparent Waters</title>
+        <meta property="og:title" content="Shop - Transparent Waters" />
       </Helmet>
 
       <Navbar8
@@ -93,9 +80,31 @@ const Login = (props) => {
         }
       ></Navbar8>
 
-    <SignIn1
+{content?.map((content) => (
+              <ShopItem1
+              heading1={
+                <Fragment>
+                  <span className="banner11-text3">{content?.Description}</span>
+                </Fragment>
+              }
+              content1={
+                <Fragment>
+                  <span className="banner11-text5">{content?.Price}</span>
+                </Fragment>
+              }
+              action1={
+                <Fragment>
+                  <span className="banner11-text4">Purchase</span>
+                </Fragment>
+              }
+              content3={
+                <Fragment>
+                <span className="banner11-text5">{content?.StockStatus}</span>
+              </Fragment>
+              }
+            ></ShopItem1>
+      ))}
 
-    ></SignIn1>
 
       <Footer41
         link5={
@@ -144,4 +153,4 @@ const Login = (props) => {
 }
 
 
-export default Login
+export default ShopItem

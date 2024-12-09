@@ -3,46 +3,17 @@ import React, { Fragment, useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 
 import Navbar8 from '../components/navbar8'
+import FishForm1 from '../components/fish-form1'
 import Footer41 from '../components/footer41'
-import './home.css'
-import SignIn1 from '../components/sign-in1'
+import './blog.css'
 
-const Login = (props) => {
-
-  const [members, setMembers] = useState(null);
-  const [admins, setAdmins] = useState(null);
-
-  useEffect(() => {
-    fetch("http://localhost:3000/members/members", {
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setMembers(data);
-        console.log(data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-  useEffect(() => {
-    fetch("http://localhost:3000/members/admins", {
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setAdmins(data);
-        console.log(data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-
+const FishForm = (props) => {
 
   return (
     <div className="blog-container">
       <Helmet>
-        <title>Transparent Waters</title>
-        <meta property="og:title" content="Transparent Waters" />
+        <title>Blog - Transparent Waters</title>
+        <meta property="og:title" content="Blog - Transparent Waters" />
       </Helmet>
 
       <Navbar8
@@ -93,9 +64,14 @@ const Login = (props) => {
         }
       ></Navbar8>
 
-    <SignIn1
+        <FishForm1
+              heading1={
+                <Fragment>
+                  <span className="contact-form3-text7">Submit a new fish</span>
+                </Fragment>
+              }
 
-    ></SignIn1>
+        ></FishForm1>
 
       <Footer41
         link5={
@@ -144,4 +120,4 @@ const Login = (props) => {
 }
 
 
-export default Login
+export default FishForm

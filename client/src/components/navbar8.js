@@ -87,6 +87,19 @@ const Navbar8 = (props) => {
             </button>
             </a>
           </div>
+          <div className="navbar8-buttons1">
+            <a href = "/cart">
+            <button className="navbar8-action11 thq-button-animated thq-button-filled">
+              <span>
+                {props.cartAction ?? (
+                  <Fragment>
+                    <span className="navbar8-text25">Cart</span>
+                  </Fragment>
+                )}
+              </span>
+            </button>
+            </a>
+          </div>
         </div>
         <div data-thq="thq-burger-menu" className="navbar8-burger-menu">
           <svg viewBox="0 0 1024 1024" className="navbar8-icon14">
@@ -256,7 +269,7 @@ const Navbar8 = (props) => {
                 <span>
                   {props.action1 ?? (
                     <Fragment>
-                      <span className="navbar8-text25">Login</span>
+                      <span className="navbar8-text25">Cart</span>
                     </Fragment>
                   )}
                 </span>
@@ -265,11 +278,24 @@ const Navbar8 = (props) => {
                 <span>
                   {props.action2 ?? (
                     <Fragment>
-                      <span className="navbar8-text15">Cart</span>
+                      <span className="navbar83-text27">Cart</span>
                     </Fragment>
                   )}
                 </span>
               </button>
+              <div className="navbar8-buttons1">
+            <a href = "/cart">
+            <button className="navbar8-action11 thq-button-animated thq-button-filled">
+              <span>
+                {props.action1 ?? (
+                  <Fragment>
+                    <span className="navbar8-text25">Cart</span>
+                  </Fragment>
+                )}
+              </span>
+            </button>
+            </a>
+          </div>
             </div>
           </div>
           <div className="navbar8-icon-group">
@@ -450,6 +476,7 @@ Navbar8.defaultProps = {
   page1Description: undefined,
   page3: undefined,
   action1: undefined,
+  cartAction: undefined,
   link2: undefined,
   page2ImageSrc:
     'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczMjAzODYyNHw&ixlib=rb-4.0.3&q=80&w=1080',
@@ -486,6 +513,7 @@ Navbar8.propTypes = {
   page3: PropTypes.element,
   action1: PropTypes.element,
   link2: PropTypes.element,
+  cartAction: PropTypes.element,
   page2ImageSrc: PropTypes.string,
 }
 

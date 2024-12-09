@@ -5,9 +5,9 @@ import { Helmet } from 'react-helmet'
 import Navbar8 from '../components/navbar8'
 import Footer41 from '../components/footer41'
 import './home.css'
-import SignIn1 from '../components/sign-in1'
+import SignUp2 from '../components/sign-up2'
 
-const Login = (props) => {
+const SignUp = (props) => {
 
   const [members, setMembers] = useState(null);
   const [admins, setAdmins] = useState(null);
@@ -93,9 +93,8 @@ const Login = (props) => {
         }
       ></Navbar8>
 
-    <SignIn1
-
-    ></SignIn1>
+    <SignUp2
+    ></SignUp2>
 
       <Footer41
         link5={
@@ -144,4 +143,10 @@ const Login = (props) => {
 }
 
 
-export default Login
+function checkCredentials (usernameCheck, passwordCheck){
+    
+}
+
+
+
+export default SignUp
