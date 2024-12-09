@@ -1,4 +1,9 @@
+
 const memberModel = require('../models/memberModel');
+const jwt = require('jsonwebtoken');
+const { validationResult } = require('express-validator');
+
+const secretKey = process.env.JWT_SECRET;
 
 // get all members
 const getAllMembers = (req, res) => {
@@ -43,19 +48,60 @@ const getMemberByEmail = (req, res) => {
     });
 };
 
-// create a new member
-const createMember = (req, res) => {
+// register member
+const register = (req, res) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
     const { username, email, password, description } = req.body;
+
     if (username === undefined || email === undefined || password === undefined || description === undefined) {
         res.status(400).send('Missing input');
         return;
     }
     memberModel.createMember(username, email, password, description, (err, results) => {
         if (err) {
+            if (err.code === 'ER_DUP_ENTRY') {
+                res.status(400).send('Username or email already exists');
+                return;
+            }
             res.status(500).send('Database query error');
             return;
         }
-        res.json(results);
+        res.status(201).json({message: "Member registered successfully"});
+    });
+};
+
+// login member
+const login = (req,res) => {
+    const {email, password} = req.body;
+
+    memberModel.getMemberByEmail(email, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        if (results.length === 0) {
+            res.status(404).send('Member not found');
+            return;
+        }
+        const user = results[0];
+        bcrypt.compare(password, user.password, (err, result) => {
+            if (result) {
+                const token = jwt.sign({email: user.email, username: user.username}, secretKey, {expiresIn: '1h'});
+                res.status(200).json({token});
+            }
+            else if (err) {
+                res.status(500).send('Database query error');
+                return;
+            }
+            else {
+                res.status(401).send('Invalid credentials');
+            }
+        });
     });
 };
 
@@ -163,7 +209,8 @@ module.exports = {
     getAllMembers,
     getMemberByUsername,
     getMemberByEmail,
-    createMember,
+    register,
+    login,
     updateMemberDescription,
     deleteMember,
     getAllAdmins,

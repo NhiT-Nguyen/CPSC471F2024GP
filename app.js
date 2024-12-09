@@ -3,6 +3,7 @@ const db = require('./backend/config/db');
 const app = express();
 const port = 3000;
 const blogRoutes = require('./backend/routes/blogRoutes');
+const memberRoutes = require('./backend/routes/memberRoutes');
 
 app.use(express.json());
 
