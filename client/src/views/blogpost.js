@@ -3,7 +3,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 
 import Navbar8 from '../components/navbar8'
-import Banner11 from '../components/banner11'
+import BlogPostBody from '../components/blog-post-body'
 import Footer41 from '../components/footer41'
 import './blog.css'
 
@@ -65,12 +65,7 @@ const BlogPost = (props) => {
         }
         page3={
           <Fragment>
-            <span className="blog-text16">Fishing Lures</span>
-          </Fragment>
-        }
-        page4={
-          <Fragment>
-            <span className="blog-text17">Find a Fishing Buddy</span>
+            <span className="blog-text16">Water Safety</span>
           </Fragment>
         }
         action1={
@@ -83,33 +78,10 @@ const BlogPost = (props) => {
             <span className="blog-text19">Secondary Action</span>
           </Fragment>
         }
-        page1Description={
-          <Fragment>
-            <span className="blog-text20">Page One Description</span>
-          </Fragment>
-        }
-        page2Description={
-          <Fragment>
-            <span className="blog-text21">Page Two Description</span>
-          </Fragment>
-        }
-        page3Description={
-          <Fragment>
-            <span className="blog-text22">Page Three Description</span>
-          </Fragment>
-        }
-        page4Description={
-          <Fragment>
-            <span className="blog-text23">Page Four Description</span>
-          </Fragment>
-        }
-        link1Url="/"
-        link2Url="/blog"
-        link3Url="/shop"
       ></Navbar8>
 
 {content?.map((content) => (
-              <Banner11
+              <BlogPostBody
               heading1={
                 <Fragment>
                   <span className="banner11-text3">{content?.Title}</span>
@@ -125,7 +97,7 @@ const BlogPost = (props) => {
                   <span className="banner11-text4">Leave a Comment</span>
                 </Fragment>
               }
-            ></Banner11>
+            ></BlogPostBody>
       ))}
 
 

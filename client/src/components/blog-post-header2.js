@@ -37,7 +37,7 @@ const BlogPostHeader2 = (props) => {
               </h1>
               <div className="blog-post-header2-content3">
                 <div className="blog-post-header2-author">
-                  <span className="thq-body-small">By</span>
+                  <span className="thq-body-small"></span>
                   <span className="thq-body-small">
                     {props.avatarName ?? (
                       <Fragment>

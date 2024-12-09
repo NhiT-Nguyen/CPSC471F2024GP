@@ -8,11 +8,11 @@ import Footer41 from '../components/footer41'
 import './blog.css'
 import Banner11 from '../components/banner11'
 
-const Blog = (props) => {
+const FishingLocations = (props) => {
 
   const [content, setContent] = useState(null);
   useEffect(() => {
-    fetch("http://localhost:3000/blog/posts", {
+    fetch("http://localhost:3000/fish/locations", {
       method: "GET",
     })
       .then((response) => response.json())
@@ -28,8 +28,8 @@ const Blog = (props) => {
   return (
     <div className="blog-container">
       <Helmet>
-        <title>Blog - Transparent Waters</title>
-        <meta property="og:title" content="Blog - Transparent Waters" />
+        <title>Locations - Transparent Waters</title>
+        <meta property="og:title" content="Locations - Transparent Waters" />
       </Helmet>
 
       <Navbar8
@@ -75,7 +75,7 @@ const Blog = (props) => {
         }
         action2={
           <Fragment>
-            <span className="blog-text19">Cart</span>
+            <span className="blog-text19">Secondary Action</span>
           </Fragment>
         }
       ></Navbar8>
@@ -83,48 +83,48 @@ const Blog = (props) => {
       <Banner11
         heading1={
           <Fragment>
-            <span className="banner11-text5">Add to Our Forum</span>
+            <span className="banner11-text5">In Fishing as in Real Estate - Location, Location, Location</span>
           </Fragment>
         }            
         content1={
           <Fragment>
-            <span className="banner11-text3">Join our growing online community - post your fishing trips, tips and tricks</span>
+            <span className="banner11-text3">
+                Tell us about your favourite haunts, bucket list of places, and fishing hidey-holes for those Sundays away from the noise.
+            </span>
           </Fragment>
         }
         action1={
           <Fragment>
-            <span className="banner11-text4">Submit a blog post</span>
+            <span className="banner11-text4">Submit a new location</span>
           </Fragment>
         }
-        buttonUrl={'/posts/new'}
+        buttonUrl={'/locations/new'}
       ></Banner11>
 
       {content?.map((content) => (
               <BlogPostHeader2
               date={
                 <Fragment>
-                  <span className="blog-text24">{content.Body}</span>
+                  <span className="blog-text24">{content.Country}</span>
                 </Fragment>
               }
               blogPostTitle={
                 <Fragment>
-                  <a href = {`/blog/${content.PostID}`} ><span className="blog-text25">{content.Title}</span></a>
+                  <a href = {`/blog/${content.PostID}`} ><span className="blog-text25">{content.Name}</span></a>
                 </Fragment>
               }
               readTime={
                 <Fragment/>
-
               }
               category={
                 <Fragment>
-                  <span className="blog-text27">Post ID: {content.PostID}</span>
+                  <span className="blog-text27">Locations</span>
                 </Fragment>
               }
               avatarName={
-                <Fragment>
-                  <span className="blog-text28">By {content.MemAuthUsername ?? "Admin"}</span>
-                </Fragment>
+                <Fragment/>
               }
+              blogPostImageSrc={'/images/twilight-fishing-aileen-mayer.jpg'}
             ></BlogPostHeader2>
       ))}
 
@@ -175,4 +175,4 @@ const Blog = (props) => {
 }
 
 
-export default Blog
+export default FishingLocations

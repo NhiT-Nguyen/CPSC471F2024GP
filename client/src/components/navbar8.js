@@ -75,15 +75,17 @@ const Navbar8 = (props) => {
             </div>
           </nav>
           <div className="navbar8-buttons1">
+            <a href = "/login">
             <button className="navbar8-action11 thq-button-animated thq-button-filled">
               <span>
                 {props.action1 ?? (
                   <Fragment>
-                    <span className="navbar8-text25">Visit our Shop</span>
+                    <span className="navbar8-text25">Login</span>
                   </Fragment>
                 )}
               </span>
             </button>
+            </a>
           </div>
         </div>
         <div data-thq="thq-burger-menu" className="navbar8-burger-menu">
@@ -183,7 +185,7 @@ const Navbar8 = (props) => {
                             {props.page1Description ?? (
                               <Fragment>
                                 <span className="navbar8-text23">
-                                  Page One Description
+                                  
                                 </span>
                               </Fragment>
                             )}
@@ -210,7 +212,7 @@ const Navbar8 = (props) => {
                             {props.page2Description ?? (
                               <Fragment>
                                 <span className="navbar8-text16">
-                                  Page Two Description
+                                  
                                 </span>
                               </Fragment>
                             )}
@@ -229,7 +231,7 @@ const Navbar8 = (props) => {
                           <span className="navbar8-page31 thq-body-large">
                             {props.page3 ?? (
                               <Fragment>
-                                <span className="navbar8-text24">Fishing Lures</span>
+                                <span className="navbar8-text24">Water Safety</span>
                               </Fragment>
                             )}
                           </span>
@@ -237,34 +239,7 @@ const Navbar8 = (props) => {
                             {props.page3Description ?? (
                               <Fragment>
                                 <span className="navbar8-text14">
-                                  Page Three Description
-                                </span>
-                              </Fragment>
-                            )}
-                          </span>
-                        </div>
-                      </div>
-                    </a>
-                    <a href={props.linkUrlPage4}>
-                      <div className="navbar8-menu-item4">
-                        <img
-                          alt={props.page4ImageAlt}
-                          src={props.page4ImageSrc}
-                          className="navbar8-page4-image1"
-                        />
-                        <div className="navbar8-content4">
-                          <span className="navbar8-page41 thq-body-large">
-                            {props.page4 ?? (
-                              <Fragment>
-                                <span className="navbar8-text13">Find a Fishing Buddy</span>
-                              </Fragment>
-                            )}
-                          </span>
-                          <span className="thq-body-small">
-                            {props.page4Description ?? (
-                              <Fragment>
-                                <span className="navbar8-text19">
-                                  Page Four Description
+                                  
                                 </span>
                               </Fragment>
                             )}
@@ -281,7 +256,7 @@ const Navbar8 = (props) => {
                 <span>
                   {props.action1 ?? (
                     <Fragment>
-                      <span className="navbar8-text25">Visit our Store</span>
+                      <span className="navbar8-text25">Login</span>
                     </Fragment>
                   )}
                 </span>
@@ -290,7 +265,7 @@ const Navbar8 = (props) => {
                 <span>
                   {props.action2 ?? (
                     <Fragment>
-                      <span className="navbar8-text15">Secondary Action</span>
+                      <span className="navbar8-text15">Cart</span>
                     </Fragment>
                   )}
                 </span>
@@ -340,7 +315,6 @@ const Navbar8 = (props) => {
                       {props.page1Description ?? (
                         <Fragment>
                           <span className="navbar8-text23">
-                            Page One Description
                           </span>
                         </Fragment>
                       )}
@@ -367,7 +341,7 @@ const Navbar8 = (props) => {
                       {props.page2Description ?? (
                         <Fragment>
                           <span className="navbar8-text16">
-                            Page Two Description
+                            
                           </span>
                         </Fragment>
                       )}
@@ -394,7 +368,7 @@ const Navbar8 = (props) => {
                       {props.page3Description ?? (
                         <Fragment>
                           <span className="navbar8-text14">
-                            Page Three Description
+                          
                           </span>
                         </Fragment>
                       )}
@@ -421,7 +395,7 @@ const Navbar8 = (props) => {
                       {props.page4Description ?? (
                         <Fragment>
                           <span className="navbar8-text19">
-                            Page Four Description
+                            
                           </span>
                         </Fragment>
                       )}
@@ -444,15 +418,14 @@ const Navbar8 = (props) => {
 }
 
 Navbar8.defaultProps = {
-  logoSrc:
-    'https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/84ec08e8-34e9-42c7-9445-d2806d156403/fac575ac-7a41-484f-b7ac-875042de11f8?org_if_sml=1&force_format=original',
+  logoSrc: '/images/TWLogo.jpg',
   page4: undefined,
   link2Url: '/blog',
-  linkUrlPage4: '',
-  linkUrlPage1: '',
+  linkUrlPage4: 'https://example.com',
+  linkUrlPage1: '/fish',
   page3Description: undefined,
   action2: undefined,
-  linkUrlPage2: '',
+  linkUrlPage2: '/locations',
   page2ImageAlt: 'image',
   page2Description: undefined,
   link1Url: '/',
@@ -472,7 +445,7 @@ Navbar8.defaultProps = {
     'https://images.unsplash.com/photo-1506126613408-eca07ce68773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczMjAzODYyNHw&ixlib=rb-4.0.3&q=80&w=1080',
   link3: undefined,
   link4: undefined,
-  linkUrlPage3: '',
+  linkUrlPage3: 'https://example.com',
   page1: undefined,
   page1Description: undefined,
   page3: undefined,

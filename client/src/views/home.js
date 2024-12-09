@@ -51,12 +51,7 @@ const Home = (props) => {
         }
         page3={
           <Fragment>
-            <span className="home-text16">Fishing Lures</span>
-          </Fragment>
-        }
-        page4={
-          <Fragment>
-            <span className="home-text17">Find a Fishing Buddy</span>
+            <span className="home-text16">Water Safety</span>
           </Fragment>
         }
         action1={
@@ -69,29 +64,6 @@ const Home = (props) => {
             <span className="home-text19">Secondary Action</span>
           </Fragment>
         }
-        page1Description={
-          <Fragment>
-            <span className="home-text20">Page One Description</span>
-          </Fragment>
-        }
-        page2Description={
-          <Fragment>
-            <span className="home-text21">Page Two Description</span>
-          </Fragment>
-        }
-        page3Description={
-          <Fragment>
-            <span className="home-text22">Page Three Description</span>
-          </Fragment>
-        }
-        page4Description={
-          <Fragment>
-            <span className="home-text23">Page Four Description</span>
-          </Fragment>
-        }
-        link1Url="/"
-        link2Url="/blog"
-        link3Url="/shop"
       ></Navbar8>
       <Hero17
         action1={

@@ -1,28 +1,37 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 
 import PropTypes from 'prop-types'
 
 import './contact-form3.css'
 
 const ContactForm3 = (props) => {
-    const [content, setContent] = useState(null);
-    useEffect(() => {
-      fetch("http://localhost:3000/blog/posts", {
+
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
+    const [authUsername, setAuthUsername] = useState("");
+    const [adminFlag, setAdminFlag] = useState("");
+  
+    function addNewBlogPost() {
+      fetch(("http://localhost:3000/blog/posts"), {
         method: "POST",
-        body: {
-            title:  "",
-            body: "",
-            authID: "",
-            MemAuthUsername: ""
+        body: JSON.stringify({
+          title: title,
+          body: body,
+          authorID: authUsername,
+          adminFlag : false,
+        }),
+        headers: {
+            "Content-Type": "application/json"
         }
       })
-        .then((response) => response.json())
+        /*.then((response) => response.json())
         .then((data) => {
           setContent(data);
           console.log(data);
         })
-        .catch((error) => console.log(error));
-    }, []);
+        .catch((error) => console.log(error));*/
+    }
+
 
   return (
     <div className="contact-form3-contact9 thq-section-padding">
@@ -47,8 +56,8 @@ const ContactForm3 = (props) => {
             </div>
           </div>
           <form className="thq-card"  onSubmit={(e) => {
-            e.preventDefault()
-            FETCHFETCH
+            e.preventDefault();
+            addNewBlogPost();
           }}>
             <div className="contact-form3-input1">
               <label htmlFor="contact-form-3-name" className="thq-body-small">
@@ -60,8 +69,8 @@ const ContactForm3 = (props) => {
                 placeholder="Title"
                 rows="Title"
                 className="thq-input"
-                value={content}
-                onChange={(e) => setTitle(e.target.textContent)}
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div className="contact-form3-input2">
@@ -71,39 +80,27 @@ const ContactForm3 = (props) => {
               <input
                 type="text"
                 id="contact-form-3-email"
-                required="true"
+                required={true}
                 placeholder="Username"
                 className="thq-input"
+                value={authUsername}
+                onChange={(e) => setAuthUsername(e.target.value)}
               />
             </div>
             <div className="contact-form3-container">
               <label
                 htmlFor="contact-form-3-message"
                 className="thq-body-small"
-              >
-                Blog Post
+              > Blog Post
               </label>
               <textarea
                 id="contact-form-3-message"
                 rows="3"
                 placeholder="Enter your text here"
                 className="thq-input"
+                value={body}
+                onChange={(e) => setBody(e.target.value)}
               ></textarea>
-            </div>
-            <div className="contact-form3-checkbox1">
-              <input
-                type="checkbox"
-                id="contact-form-3-check"
-                checked="true"
-                required="true"
-                className="thq-checkbox"
-              />
-              <label
-                htmlFor="contact-form-3-check"
-                className="contact-form3-text5 thq-body-small"
-              >
-                I accept the Terms
-              </label>
             </div>
             <button
               type="submit"

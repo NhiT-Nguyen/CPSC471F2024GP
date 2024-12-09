@@ -8,10 +8,10 @@
   --dl-size-size-xxlarge: 288px;
   --dl-size-size-maxwidth: 1400px;
   --dl-color-theme-accent1: #FFFFFF;
-  --dl-color-theme-accent2: #F5D1B0;
+  --dl-color-theme-accent2: #FBC78D;
   --dl-radius-radius-round: 50%;
-  --dl-color-theme-primary1: #BF4408;
-  --dl-color-theme-primary2: #E65103;
+  --dl-color-theme-primary1: #2B3A8F;
+  --dl-color-theme-primary2: #27A2DD;
   --dl-space-space-halfunit: 8px;
   --dl-space-space-sixunits: 96px;
   --dl-space-space-twounits: 32px;
@@ -23,7 +23,7 @@
   --dl-color-theme-secondary1: #FFFFFF;
   --dl-color-theme-secondary2: #FBF1EB;
   --dl-space-space-threeunits: 48px;
-  --dl-color-theme-neutral-dark: #191818;
+  --dl-color-theme-neutral-dark: #1E2864;
   --dl-radius-radius-cardradius: 8px;
   --dl-color-theme-neutral-light: #FBFAF9;
   --dl-radius-radius-imageradius: 8px;
@@ -218,7 +218,7 @@
 }
 .thq-img-ratio-16-9 {
   width: 100%;
-  object-fit: cover;
+  object-fit: fill;
   aspect-ratio: 16/9;
   border-radius: var(--dl-radius-radius-imageradius);
 }

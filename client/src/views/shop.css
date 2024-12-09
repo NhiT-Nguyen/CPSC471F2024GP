@@ -5,6 +5,15 @@
   align-items: center;
   flex-direction: column;
 }
+.shop-header{
+  gap: var(--dl-space-space-oneandhalfunits);
+  width: auto;
+  display: flex;
+  max-width: 800px;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+}
 .shop-text10 {
   display: inline-block;
 }

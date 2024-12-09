@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import './banner11.css'
 
-const Banner11 = (props) => {
+const BlogPostBody = (props) => {
   return (
     <div className="banner11-container1 thq-section-padding">
       <div className="banner11-max-width thq-section-max-width">
@@ -26,36 +26,23 @@ const Banner11 = (props) => {
             )}
           </h3>
         </div>
-        <a
-            href={props.buttonUrl}
-        >
-            <button type="button" className="thq-button-filled">
-            <span>
-                {props.action1 ?? (
-                <Fragment>
-                    <span className="banner11-text4">Add a comment</span>
-                </Fragment>
-                )}
-            </span>
-            </button>
-        </a>
       </div>
     </div>
   )
 }
 
-Banner11.defaultProps = {
-    buttonUrl: '/',
+BlogPostBody.defaultProps = {
+    buttonUrl: '/posts/new',
     content1: undefined,
     action1: undefined,
     heading1: undefined,
 }
 
-Banner11.propTypes = {
+BlogPostBody.propTypes = {
     buttonUrl: PropTypes.string,
     content1: PropTypes.element,
     action1: PropTypes.element,
     heading1: PropTypes.element,
 }
 
-export default Banner11
+export default BlogPostBody

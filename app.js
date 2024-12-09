@@ -24,6 +24,13 @@ app.listen(port, () => {
 
 app.use('/blog', blogRoutes);
 app.use('/comments', commentRoutes);
+app.use('/cart', cartRoutes);
+app.use('/gear', fishingGearRoutes);
+app.use('/fish', fishRoutes);
+app.use('/member', memberRoutes);
+app.use('/order', orderRoutes);
+app.use('/review', reviewRoutes);
+app.use('/transaction', transactionRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');

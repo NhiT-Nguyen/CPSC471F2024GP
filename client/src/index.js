@@ -8,22 +8,38 @@ import {
 } from 'react-router-dom'
 
 import './style.css'
+import Login from './views/login'
+
 import Shop from './views/shop'
+
 import Blog from './views/blog'
 import BlogPost from './views/blogpost'
+import BlogForm from './views/blogform'
+
 import Home from './views/home'
+
+import Fish from './views/fish'
+import FishingLocations from './views/fishinglocations'
+
 import NotFound from './views/not-found'
 
 const App = () => {
   return (
     <Router>
       <Switch>
-        <Route component={Shop} exact path="/shop" />
-        <Route component={Blog} exact path="/blog" />
-        <Route component={BlogPost} path="/blog/:id"/>
-        <Route component={Home} exact path="/" />
-        <Route component={NotFound} path="**" />
-        <Redirect to="**" />
+          <Route component={Login} exact path="/login" />
+          <Route component={Shop} exact path="/shop" />
+
+          <Route component={Blog} exact path="/blog" />
+          <Route component={BlogPost} path="/blog/:id"/>
+          <Route component={BlogForm} path ="/posts/new"/>
+
+          <Route component={Home} exact path="/" />
+
+          <Route component={Fish} exact path="/fish" />
+          <Route component={FishingLocations} exact path="/locations" />
+          <Route component={NotFound} path="**" />
+          <Redirect to="**" />
       </Switch>
     </Router>
   )

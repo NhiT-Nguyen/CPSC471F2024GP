@@ -9,22 +9,6 @@ const Gallery14 = (props) => {
     <div className="gallery14-gallery3 thq-section-padding">
       <div className="gallery14-max-width thq-section-max-width">
         <div className="gallery14-section-title">
-          <h2 className="gallery14-text10 thq-heading-2">
-            {props.heading1 ?? (
-              <Fragment>
-                <span className="gallery14-text25">Gallery</span>
-              </Fragment>
-            )}
-          </h2>
-          <span className="gallery14-text11 thq-body-large">
-            {props.content1 ?? (
-              <Fragment>
-                <span className="gallery14-text20">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </span>
-              </Fragment>
-            )}
-          </span>
         </div>
         <div className="gallery14-content">
           <div className="gallery14-container1">
@@ -36,7 +20,7 @@ const Gallery14 = (props) => {
             <span className="thq-body-small">
               {props.image1Title ?? (
                 <Fragment>
-                  <span className="gallery14-text24">Sunset Fishing</span>
+                  <span className="gallery14-text24">Title</span>
                 </Fragment>
               )}
             </span>
@@ -44,53 +28,7 @@ const Gallery14 = (props) => {
               {props.image1Description ?? (
                 <Fragment>
                   <span className="gallery14-text18">
-                    Enjoying a peaceful fishing session during sunset
-                  </span>
-                </Fragment>
-              )}
-            </span>
-          </div>
-          <div className="gallery14-container2">
-            <img
-              alt={props.image2Alt}
-              src={props.image2Src}
-              className="gallery14-image2 thq-img-ratio-4-3"
-            />
-            <span className="thq-body-small">
-              {props.image2Title ?? (
-                <Fragment>
-                  <span className="gallery14-text22">Fishing Gear</span>
-                </Fragment>
-              )}
-            </span>
-            <span className="gallery14-text15 thq-body-small">
-              {props.image2Description ?? (
-                <Fragment>
-                  <span className="gallery14-text21">
-                    High-quality fishing gear for the best fishing experience
-                  </span>
-                </Fragment>
-              )}
-            </span>
-          </div>
-          <div className="gallery14-container3">
-            <img
-              alt={props.image3Alt}
-              src={props.image3Src}
-              className="gallery14-image3 thq-img-ratio-4-3"
-            />
-            <span className="thq-body-small">
-              {props.image3Title ?? (
-                <Fragment>
-                  <span className="gallery14-text23">Big Catch</span>
-                </Fragment>
-              )}
-            </span>
-            <span className="gallery14-text17 thq-body-small">
-              {props.image3Description ?? (
-                <Fragment>
-                  <span className="gallery14-text19">
-                    Catching a big fish in a remote lake
+                    Description
                   </span>
                 </Fragment>
               )}
@@ -125,15 +63,15 @@ Gallery14.defaultProps = {
 Gallery14.propTypes = {
   image1Alt: PropTypes.string,
   image2Src: PropTypes.string,
-  image1Description: PropTypes.element,
+  image1Description: PropTypes.string,
   image3Description: PropTypes.element,
   image3Src: PropTypes.string,
   content1: PropTypes.element,
   image2Alt: PropTypes.string,
-  image2Description: PropTypes.element,
+  image2Description: PropTypes.string,
   image2Title: PropTypes.element,
   image3Title: PropTypes.element,
-  image1Title: PropTypes.element,
+  image1Title: PropTypes.string,
   image3Alt: PropTypes.string,
   image1Src: PropTypes.string,
   heading1: PropTypes.element,

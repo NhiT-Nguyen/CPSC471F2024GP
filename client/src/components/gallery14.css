@@ -19,7 +19,7 @@
   gap: var(--dl-space-space-oneandhalfunits);
   width: auto;
   display: flex;
-  max-width: 800px;
+  max-width: 300px;
   align-items: center;
   flex-shrink: 0;
   flex-direction: column;
@@ -58,7 +58,7 @@
 }
 .gallery14-container2 {
   gap: var(--dl-space-space-unit);
-  width: 100%;
+  width: 33%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -67,7 +67,7 @@
 .gallery14-image2 {
   width: 100%;
   height: 300px;
-  max-width: 600px;
+  max-width: 300;
   align-self: center;
 }
 .gallery14-text15 {
@@ -82,9 +82,9 @@
   justify-content: center;
 }
 .gallery14-image3 {
-  width: 100%;
+  width: 33%;
   height: 300px;
-  max-width: 600px;
+  max-width: 300;
 }
 .gallery14-text17 {
   text-align: center;
@@ -132,5 +132,6 @@
     flex: 0 0 auto;
     width: 100%;
     height: 360px;
+    
   }
 }
