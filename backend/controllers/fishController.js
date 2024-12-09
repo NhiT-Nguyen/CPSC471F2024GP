@@ -24,6 +24,17 @@ const getFishByName = (req, res) => {
     });
 };
 
+const getFishLures = (req, res) => {
+    const { scientificName } = req.params;
+    fishModel.getFishLures(scientificName, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.json(results);
+    });
+};
+
 // get common name
 
 const getFishCommonNames = (req, res) => {
@@ -140,6 +151,7 @@ const deleteFish = (req, res) => {
 module.exports = {
     getAllFish,
     getFishByName,
+    getFishLures,
     getFishCommonNames,
     getFishingLocations,
     getFishingTypesByLoc,

@@ -15,6 +15,7 @@ db.connect((err) => {
         return;
     }
     console.log('Database connected');
+    console.log('Database is on port 3306');
 });
 
 module.exports = db;
