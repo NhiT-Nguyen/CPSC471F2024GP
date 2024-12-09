@@ -6,6 +6,13 @@ const port = process.env.PORT || 3000;
 
 const blogRoutes = require('./backend/routes/blogRoutes');
 const commentRoutes = require('./backend/routes/commentRoutes');
+const cartRoutes = require ('./backend/routes/cartRoutes');
+const fishingGearRoutes = require ('./backend/routes/fishingGearRoutes');
+const fishRoutes = require ('./backend/routes/fishRoutes');
+const memberRoutes = require ('./backend/routes/memberRoutes');
+const orderRoutes = require ('./backend/routes/orderRoutes');
+const reviewRoutes = require ('./backend/routes/reviewRoutes');
+const transactionRoutes = require ('./backend/routes/transactionRoutes');
 
 app.use(cors());
 
