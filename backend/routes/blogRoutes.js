@@ -2,6 +2,10 @@ const express = require('express');
 const blogController = require('../controllers/blogController');
 const router = express.Router();
 
+const multer = require('multer');
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
 // get all blog posts
 router.get('/posts', blogController.getPosts);
 
@@ -31,7 +35,7 @@ router.get('/posts/:id/images', blogController.getPostImages);
 router.get('/images/:id', blogController.getImageById);
 
 // add image to post
-router.post('/posts/:id/images', blogController.addImageToPost);
+router.post('/posts/:id/images', upload.single('image'), blogController.addImageToPost);
 
 // delete image from post
 router.delete('/images/:id', blogController.deleteImage);
