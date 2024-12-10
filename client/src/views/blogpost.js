@@ -10,11 +10,14 @@ import './blog.css'
 const BlogPost = (props) => {
 
   const [content, setContent] = useState(null);
-  useEffect(() => {
-    fetch(("http://localhost:3000/blog/posts/" + props.match.params.id), {
-      method: "GET",
+  const [images, setImages] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const postId = props.match.params.id;
 
-    })
+  
+  
+  useEffect(() => {
+    fetch(`http://localhost:3000/blog/posts/${postId}`)
       .then((response) => response.json())
       .then((data) => {
         setContent(data);
@@ -23,6 +26,44 @@ const BlogPost = (props) => {
       .catch((error) => console.log(error));
   }, []);
 
+  // fetch images for blog post
+  useEffect(() => {
+    fetch(("http://localhost:3000/blog/posts/" + postId + "/images"), {
+      method: "GET",
+
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setImages(data);
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  }, [postId]);
+
+  const handleImageUpload = (e) => {
+    e.preventDefault();
+    if (!selectedImage) return;
+
+    const formData = new FormData();
+    formData.append('image', selectedImage);
+
+    fetch(`http://localhost:3000/blog/posts/${postId}/images`, {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error('Failed to upload image');
+        return response.json();
+      })
+      .then(() => {
+        alert('Image uploaded successfully!');
+        // Fetch updated images
+        return fetch(`http://localhost:3000/blog/posts/${postId}/images`)
+          .then((response) => response.json())
+          .then((data) => setImages(data));
+      })
+      .catch((error) => console.log(error));
+  };
 
 
   return (
@@ -82,6 +123,7 @@ const BlogPost = (props) => {
 
 {content?.map((content) => (
               <BlogPostBody
+              key={content.postId}
               heading1={
                 <Fragment>
                   <span className="banner11-text3">{content?.Title}</span>
@@ -99,6 +141,35 @@ const BlogPost = (props) => {
               }
             ></BlogPostBody>
       ))}
+
+      {/* Images Section */}
+      <div className="images-section">
+        <h3>Images</h3>
+        {images.length > 0 ? (
+          images.map((image) => (
+            <img
+              key={image.ImageID}
+              src={`http://localhost:3000/blog/images/${image.ImageID}`}
+              alt="Blog Post"
+              style={{ maxWidth: '100%', margin: '10px 0' }}
+            />
+          ))
+        ) : (
+          <p>No images available for this post.</p>
+        )}
+      </div>
+
+      <div className="image-upload-form">
+  <form onSubmit={handleImageUpload}>
+    <h3>Upload an Image</h3>
+    <input
+      type="file"
+      onChange={(e) => setSelectedImage(e.target.files[0])}
+    />
+    <button type="submit">Upload</button>
+  </form>
+  </div>
+
 
 
       <Footer41
@@ -149,3 +220,6 @@ const BlogPost = (props) => {
 
 
 export default BlogPost
+
+
+
