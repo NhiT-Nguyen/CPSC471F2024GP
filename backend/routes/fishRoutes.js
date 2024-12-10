@@ -20,6 +20,9 @@ router.get('/locations', fishController.getFishingLocations);
 // get fishing type by loc
 router.get('/locations/:location', fishController.getFishingTypesByLoc);
 
+// create fishing location
+router.post('/locations', fishController.createFishingLocation);
+
 // create a new fish
 router.post('/fish', fishController.createFish);
 

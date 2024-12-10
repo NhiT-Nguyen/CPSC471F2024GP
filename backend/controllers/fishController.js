@@ -58,6 +58,21 @@ const getFishingLocations = (req, res) => {
         res.json(results);
     });
 }
+// takes country and location
+const createFishingLocation = (req, res) => {
+    const { name, country } = req.body;
+    if (!name || !country) {
+        res.status(400).send('Missing input');
+        return;
+    }
+    fishModel.createFishingLocation(name, country, (err, results) => {
+        if (err) {
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.status(201).json({message: 'Location created successfully'});
+    });
+}
 
 // get fishing type by loc
 const getFishingTypesByLoc = (req, res) => {
@@ -159,5 +174,6 @@ module.exports = {
     createCommonName,
     createSuitableLure,
     updateFish,
-    deleteFish
+    deleteFish,
+    createFishingLocation
 };
