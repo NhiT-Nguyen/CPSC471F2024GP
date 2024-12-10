@@ -26,6 +26,7 @@ import FishingLocations from './views/fishinglocations'
 import LocationForm from './views/fishinglocationform'
 
 import ProfilePage from './views/profilepage'
+import Cart from './views/cart'
 
 import NotFound from './views/not-found'
 
@@ -50,12 +51,15 @@ const App = () => {
           <Route component={SignUp} exact path="/signup" />
           <Route component={Shop} exact path="/shop" />
           <Route component={ShopItem} exact path="/shop/:id" />
+          <Route component={Cart} exact path="/cart" />
+
 
           <Route component={Blog} exact path="/blog" />
           <Route component={BlogPost} path="/blog/:id"/>
           <Route component={BlogForm} path ="/posts/new"/>
 
           <Route component={Home} exact path="/" />
+          <Route component={ProfilePage} exact path="/user" />
 
           <Route component={Fish} exact path="/fish" />
           <Route component={FishForm} path ="/fish/new"/>

@@ -3,6 +3,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import './banner11.css'
+import { Link } from 'react-router-dom/cjs/react-router-dom'
 
 const Banner11 = (props) => {
   return (
@@ -26,8 +27,8 @@ const Banner11 = (props) => {
             )}
           </h3>
         </div>
-        <a
-            href={props.buttonUrl}
+        <Link
+            to={props.buttonUrl}
         >
             <button type="button" className="thq-button-filled">
             <span>
@@ -38,7 +39,7 @@ const Banner11 = (props) => {
                 )}
             </span>
             </button>
-        </a>
+        </Link>
       </div>
     </div>
   )

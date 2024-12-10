@@ -9,8 +9,7 @@ import SignIn1 from '../components/sign-in1'
 
 const Login = (props) => {
 
-  const [members, setMembers] = useState(null);
-  const [admins, setAdmins] = useState(null);
+
 
   useEffect(() => {
     fetch("http://localhost:3000/members/members", {
@@ -143,9 +142,7 @@ const Login = (props) => {
 }
 
 
-function checkCredentials (usernameCheck, passwordCheck){
-    
-}
+
 
 
 

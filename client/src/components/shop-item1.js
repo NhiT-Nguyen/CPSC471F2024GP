@@ -35,24 +35,22 @@ const ShopItem1 = (props) => {
             )}
           </p>
         </div>
-        <a href={props.buttonUrl}>
-            <button type="button" className="thq-button-filled">
+            <button type="button" className="thq-button-filled" onClick={props.onPurchase}>
             <span>
                 {props.action1 ?? (
                 <Fragment>
-                    <span className="banner11-text4">Add a comment</span>
+                    <span className="banner11-text4">Purchase</span>
                 </Fragment>
                 )}
             </span>
             </button>
-        </a>
       </div>
     </div>
   )
 }
 
 ShopItem1.defaultProps = {
-    buttonUrl: '/cart',
+    onPurchase: () => {},
     content1: undefined,
     action1: undefined,
     heading1: undefined,
@@ -60,7 +58,6 @@ ShopItem1.defaultProps = {
 }
 
 ShopItem1.propTypes = {
-    buttonUrl: PropTypes.string,
     content1: PropTypes.element,
     action1: PropTypes.element,
     heading1: PropTypes.element,

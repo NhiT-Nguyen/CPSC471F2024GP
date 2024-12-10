@@ -41,6 +41,7 @@ const createCart = (req, res) => {
     }
     cartModel.createCart(memUsername, (err, results) => {
         if (err) {
+            console.log('this is in the cart Controller' + err)
             res.status(500).send('Database query error');
             return;
         }

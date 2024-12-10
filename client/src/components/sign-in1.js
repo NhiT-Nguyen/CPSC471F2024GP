@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import './sign-in1.css'
 import {CurrentUserContext} from '../index'
+import { Link } from 'react-router-dom/cjs/react-router-dom'
 
 
 
@@ -183,7 +184,7 @@ const SignIn1 = (props) => {
             </span>
             <div className="sign-in1-divider3"></div>
           </div>
-          <a href={props.newAccount}>
+          <Link to={props.newAccount}>
           <button type="button" className="sign-in1-button2 thq-button-outline">
             <span className="sign-in1-text19 thq-body-small">
               {props.action2 ?? (
@@ -193,7 +194,7 @@ const SignIn1 = (props) => {
               )}
             </span>
           </button>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

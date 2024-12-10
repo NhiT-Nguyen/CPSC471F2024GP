@@ -7,6 +7,7 @@ import BlogPostHeader2 from '../components/blog-post-header2'
 import Footer41 from '../components/footer41'
 import './blog.css'
 import Banner11 from '../components/banner11'
+import { Link } from 'react-router-dom/cjs/react-router-dom'
 
 const FishingLocations = (props) => {
 
@@ -110,7 +111,7 @@ const FishingLocations = (props) => {
               }
               blogPostTitle={
                 <Fragment>
-                  <a href = {`/locations/${content.Name}`} ><span className="blog-text25">{content.Name}</span></a>
+                  <Link to = {`/locations/${content.Name}`} ><span className="blog-text25">{content.Name}</span></Link>
                 </Fragment>
               }
               readTime={

@@ -3,6 +3,7 @@ import React, { useState, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import './navbar8.css'
+import { Link } from 'react-router-dom/cjs/react-router-dom'
 
 const Navbar8 = (props) => {
   const [link5DropdownVisible, setLink5DropdownVisible] = useState(false)
@@ -17,8 +18,8 @@ const Navbar8 = (props) => {
         />
         <div data-thq="thq-navbar-nav" className="navbar8-desktop-menu">
           <nav className="navbar8-links1">
-            <a
-              href={props.link1Url}
+            <Link
+              to={props.link1Url}
               className="navbar8-link11 thq-link thq-body-small"
             >
               {props.link1 ?? (
@@ -26,16 +27,16 @@ const Navbar8 = (props) => {
                   <span className="navbar8-text18">/home</span>
                 </Fragment>
               )}
-            </a>
-            <a href={props.link2Url} className="thq-link thq-body-small">
+            </Link>
+            <Link to={props.link2Url} className="thq-link thq-body-small">
               {props.link2 ?? (
                 <Fragment>
                   <span className="navbar8-text26">/blog</span>
                 </Fragment>
               )}
-            </a>
-            <a
-              href={props.link3Url}
+            </Link>
+            <Link
+              to={props.link3Url}
               rel="noreferrer noopener"
               className="navbar8-link31 thq-link thq-body-small"
             >
@@ -44,7 +45,7 @@ const Navbar8 = (props) => {
                   <span className="navbar8-text20">/shop</span>
                 </Fragment>
               )}
-            </a>
+            </Link>
             <div
               onClick={() => setLink5DropdownVisible(!link5DropdownVisible)}
               className="navbar8-link4-dropdown-trigger"
@@ -75,7 +76,7 @@ const Navbar8 = (props) => {
             </div>
           </nav>
           <div className="navbar8-buttons1">
-            <a href = "/login">
+            <Link to = "/login">
             <button className="navbar8-action11 thq-button-animated thq-button-filled">
               <span>
                 {props.action1 ?? (
@@ -85,10 +86,10 @@ const Navbar8 = (props) => {
                 )}
               </span>
             </button>
-            </a>
+            </Link>
           </div>
           <div className="navbar8-buttons1">
-            <a href = "/cart">
+            <Link to = "/cart">
             <button className="navbar8-action11 thq-button-animated thq-button-filled">
               <span>
                 {props.cartAction ?? (
@@ -98,7 +99,7 @@ const Navbar8 = (props) => {
                 )}
               </span>
             </button>
-            </a>
+            </Link>
           </div>
         </div>
         <div data-thq="thq-burger-menu" className="navbar8-burger-menu">
@@ -121,8 +122,8 @@ const Navbar8 = (props) => {
               </div>
             </div>
             <nav className="navbar8-links2">
-              <a
-                href={props.link1Url}
+              <Link
+                to={props.link1Url}
                 className="navbar8-link12 thq-link thq-body-small"
               >
                 {props.link1 ?? (
@@ -130,16 +131,16 @@ const Navbar8 = (props) => {
                     <span className="navbar8-text18">/home</span>
                   </Fragment>
                 )}
-              </a>
-              <a href={props.link2Url} className="thq-link thq-body-small">
+              </Link>
+              <Link to={props.link2Url} className="thq-link thq-body-small">
                 {props.link2 ?? (
                   <Fragment>
                     <span className="navbar8-text26">/blog</span>
                   </Fragment>
                 )}
-              </a>
-              <a
-                href={props.link3Url}
+              </Link>
+              <Link
+                to={props.link3Url}
                 className="navbar8-link32 thq-link thq-body-small"
               >
                 {props.link3 ?? (
@@ -147,7 +148,7 @@ const Navbar8 = (props) => {
                     <span className="navbar8-text20">/shop</span>
                   </Fragment>
                 )}
-              </a>
+              </Link>
               <div className="navbar8-link4-accordion">
                 <div
                   onClick={() => setLink5AccordionOpen(!link5AccordionOpen)}
@@ -179,7 +180,7 @@ const Navbar8 = (props) => {
                 </div>
                 {link5AccordionOpen && (
                   <div className="navbar8-container6">
-                    <a href={props.linkUrlPage1}>
+                    <Link to={props.linkUrlPage1}>
                       <div className="navbar8-menu-item1">
                         <img
                           alt={props.page1ImageAlt}
@@ -205,8 +206,8 @@ const Navbar8 = (props) => {
                           </span>
                         </div>
                       </div>
-                    </a>
-                    <a href={props.linkUrlPage2}>
+                    </Link>
+                    <Link to={props.linkUrlPage2}>
                       <div className="navbar8-menu-item2">
                         <img
                           alt={props.page2ImageAlt}
@@ -232,8 +233,8 @@ const Navbar8 = (props) => {
                           </span>
                         </div>
                       </div>
-                    </a>
-                    <a href={props.linkUrlPage3}>
+                    </Link>
+                    <Link to={props.linkUrlPage3}>
                       <div className="navbar8-menu-item3">
                         <img
                           alt={props.page3ImageAlt}
@@ -259,7 +260,7 @@ const Navbar8 = (props) => {
                           </span>
                         </div>
                       </div>
-                    </a>
+                    </Link>
                   </div>
                 )}
               </div>
@@ -284,7 +285,7 @@ const Navbar8 = (props) => {
                 </span>
               </button>
               <div className="navbar8-buttons1">
-            <a href = "/cart">
+            <Link to = "/cart">
             <button className="navbar8-action11 thq-button-animated thq-button-filled">
               <span>
                 {props.action1 ?? (
@@ -294,7 +295,7 @@ const Navbar8 = (props) => {
                 )}
               </span>
             </button>
-            </a>
+            </Link>
           </div>
             </div>
           </div>
@@ -322,7 +323,7 @@ const Navbar8 = (props) => {
         {link5DropdownVisible && (
           <div className="navbar8-container7 thq-box-shadow">
             <div className="navbar8-link5-menu-list">
-              <a href={props.linkUrlPage1}>
+              <Link to={props.linkUrlPage1}>
                 <div className="navbar8-menu-item5">
                   <img
                     alt={props.page1ImageAlt}
@@ -347,8 +348,8 @@ const Navbar8 = (props) => {
                     </span>
                   </div>
                 </div>
-              </a>
-              <a href={props.linkUrlPage2}>
+              </Link>
+              <Link to={props.linkUrlPage2}>
                 <div className="navbar8-menu-item6">
                   <img
                     alt={props.page2ImageAlt}
@@ -374,8 +375,8 @@ const Navbar8 = (props) => {
                     </span>
                   </div>
                 </div>
-              </a>
-              <a href={props.linkUrlPage3}>
+              </Link>
+              <Link to={props.linkUrlPage3}>
                 <div className="navbar8-menu-item7">
                   <img
                     alt={props.page3ImageAlt}
@@ -401,8 +402,8 @@ const Navbar8 = (props) => {
                     </span>
                   </div>
                 </div>
-              </a>
-              <a href={props.linkUrlPage4}>
+              </Link>
+              <Link to={props.linkUrlPage4}>
                 <div className="navbar8-menu-item8">
                   <img
                     alt={props.page4ImageAlt}
@@ -428,7 +429,7 @@ const Navbar8 = (props) => {
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         )}

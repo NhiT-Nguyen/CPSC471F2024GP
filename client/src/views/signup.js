@@ -12,31 +12,6 @@ const SignUp = (props) => {
   const [members, setMembers] = useState(null);
   const [admins, setAdmins] = useState(null);
 
-  useEffect(() => {
-    fetch("http://localhost:3000/members/members", {
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setMembers(data);
-        console.log(data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-  useEffect(() => {
-    fetch("http://localhost:3000/members/admins", {
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setAdmins(data);
-        console.log(data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-
 
   return (
     <div className="blog-container">

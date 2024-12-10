@@ -7,6 +7,7 @@ import BlogPostHeader2 from '../components/blog-post-header2'
 import Footer41 from '../components/footer41'
 import './blog.css'
 import Banner11 from '../components/banner11'
+import { Link } from 'react-router-dom/cjs/react-router-dom'
 
 const Blog = (props) => {
 
@@ -108,7 +109,7 @@ const Blog = (props) => {
               }
               blogPostTitle={
                 <Fragment>
-                  <a href = {`/blog/${content.PostID}`} ><span className="blog-text25">{content.Title}</span></a>
+                  <Link to = {`/blog/${content.PostID}`} ><span className="blog-text25">{content.Title}</span></Link>
                 </Fragment>
               }
               readTime={

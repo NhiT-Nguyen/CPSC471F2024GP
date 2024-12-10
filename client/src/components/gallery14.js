@@ -3,6 +3,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import './gallery14.css'
+import { Link } from 'react-router-dom/cjs/react-router-dom'
 
 const Gallery14 = (props) => {
   return (
@@ -17,7 +18,7 @@ const Gallery14 = (props) => {
               src={props.image1Src}
               className="gallery14-image1 thq-img-ratio-4-3"
             />
-          <a href={props.titleURL}>
+          <Link to={props.titleURL}>
             <span className="thq-heading-3">
                 {props.image1Title ?? (
                   <Fragment>
@@ -26,7 +27,7 @@ const Gallery14 = (props) => {
 
                 )}
               </span>
-          </a>
+          </Link>
 
             <span className="gallery14-text13 thq-body-small">
               {props.image1Description ?? (
