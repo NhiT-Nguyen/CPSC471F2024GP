@@ -1,10 +1,37 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 
 import PropTypes from 'prop-types'
 
 import './sign-up2.css'
 
 const SignUp2 = (props) => {
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+  
+    function addNewUser() {
+      fetch(("http://localhost:3000/members/members"), {
+        method: "POST",
+        body: JSON.stringify({
+            username: username,
+            email: email,
+            password: password,
+            description: 'New User Added From Website'
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+      })
+        /*.then((response) => response.json())
+        .then((data) => {
+          setContent(data);
+          console.log(data);
+        })
+        .catch((error) => console.log(error));*/
+    }    
+
+
   return (
     <div className="sign-up2-container1">
       <div className="sign-up2-max-width thq-section-max-width">
@@ -31,7 +58,10 @@ const SignUp2 = (props) => {
                 </p>
               </div>
             </div>
-            <form className="sign-up2-form2">
+            <form className="sign-up2-form2" onSubmit={(e) => {
+            e.preventDefault();
+            addNewUser();
+                 }}>
               <div className="sign-up2-username">
                 <label
                   htmlFor="thq-sign-up-2-username"
@@ -42,9 +72,11 @@ const SignUp2 = (props) => {
                 <input
                   type="text"
                   id="thq-sign-up-2-username"
-                  required="true"
+                  required={true}
                   placeholder="Username"
                   className="sign-up2-textinput1 thq-input thq-body-large"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
               <div className="sign-up2-email">
@@ -54,9 +86,11 @@ const SignUp2 = (props) => {
                 <input
                   type="email"
                   id="thq-sign-up-2-email"
-                  required="true"
+                  required={true}
                   placeholder="Email address"
                   className="sign-up2-textinput2 thq-input thq-body-large"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="sign-up2-password">
@@ -69,20 +103,16 @@ const SignUp2 = (props) => {
                       Password
                     </label>
                     <div className="sign-up2-hide-password">
-                      <svg viewBox="0 0 1024 1024" className="sign-up2-icon1">
-                        <path d="M317.143 762.857l44.571-80.571c-66.286-48-105.714-125.143-105.714-206.857 0-45.143 12-89.714 34.857-128.571-89.143 45.714-163.429 117.714-217.714 201.714 59.429 92 143.429 169.143 244 214.286zM539.429 329.143c0-14.857-12.571-27.429-27.429-27.429-95.429 0-173.714 78.286-173.714 173.714 0 14.857 12.571 27.429 27.429 27.429s27.429-12.571 27.429-27.429c0-65.714 53.714-118.857 118.857-118.857 14.857 0 27.429-12.571 27.429-27.429zM746.857 220c0 1.143 0 4-0.571 5.143-120.571 215.429-240 432-360.571 647.429l-28 50.857c-3.429 5.714-9.714 9.143-16 9.143-10.286 0-64.571-33.143-76.571-40-5.714-3.429-9.143-9.143-9.143-16 0-9.143 19.429-40 25.143-49.714-110.857-50.286-204-136-269.714-238.857-7.429-11.429-11.429-25.143-11.429-39.429 0-13.714 4-28 11.429-39.429 113.143-173.714 289.714-289.714 500.571-289.714 34.286 0 69.143 3.429 102.857 9.714l30.857-55.429c3.429-5.714 9.143-9.143 16-9.143 10.286 0 64 33.143 76 40 5.714 3.429 9.143 9.143 9.143 15.429zM768 475.429c0 106.286-65.714 201.143-164.571 238.857l160-286.857c2.857 16 4.571 32 4.571 48zM1024 548.571c0 14.857-4 26.857-11.429 39.429-17.714 29.143-40 57.143-62.286 82.857-112 128.571-266.286 206.857-438.286 206.857l42.286-75.429c166.286-14.286 307.429-115.429 396.571-253.714-42.286-65.714-96.571-123.429-161.143-168l36-64c70.857 47.429 142.286 118.857 186.857 192.571 7.429 12.571 11.429 24.571 11.429 39.429z"></path>
-                      </svg>
-                      <span className="thq-body-small">
-                        <span>Hide</span>
-                      </span>
                     </div>
                   </div>
                   <input
                     type="password"
                     id="thq-sign-up-2-password"
-                    required="true"
+                    required={true}
                     placeholder="Password"
                     className="sign-up2-textinput3 thq-input thq-body-large"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
                 <span className="sign-up2-text17 thq-body-small">
@@ -95,6 +125,15 @@ const SignUp2 = (props) => {
                   )}
                 </span>
               </div>
+              <button type="submit" className="thq-button-filled sign-up2-button">
+              <span className="sign-up2-text21 thq-body-small">
+                {props.action1 ?? (
+                  <Fragment>
+                    <span className="sign-up2-text25">Create an account</span>
+                  </Fragment>
+                )}
+              </span>
+            </button>
             </form>
             <div className="sign-up2-terms-agree">
               <p className="thq-body-large">
@@ -116,15 +155,6 @@ const SignUp2 = (props) => {
                 </span>
               </p>
             </div>
-            <button type="submit" className="thq-button-filled sign-up2-button">
-              <span className="sign-up2-text21 thq-body-small">
-                {props.action1 ?? (
-                  <Fragment>
-                    <span className="sign-up2-text25">Create an account</span>
-                  </Fragment>
-                )}
-              </span>
-            </button>
             <div className="sign-up2-have-an-account-login2">
               <p className="thq-body-large">Already have an account? Sign in</p>
             </div>

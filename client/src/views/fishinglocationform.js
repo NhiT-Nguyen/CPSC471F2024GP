@@ -3,7 +3,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 
 import Navbar8 from '../components/navbar8'
-import ContactForm3 from '../components/contact-form3'
+import LocationForm1 from '../components/location-form1'
 import Footer41 from '../components/footer41'
 import './blog.css'
 
@@ -64,14 +64,15 @@ const LocationForm = (props) => {
         }
       ></Navbar8>
 
-        <ContactForm3
+        <LocationForm1
               heading1={
                 <Fragment>
                   <span className="contact-form3-text7">Submit a new location</span>
                 </Fragment>
               }
+            
 
-        ></ContactForm3>
+        ></LocationForm1>
 
       <Footer41
         link5={

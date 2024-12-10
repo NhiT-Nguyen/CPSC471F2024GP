@@ -111,7 +111,7 @@ const Fish = (props) => {
               }
               blogPostTitle={
                 <Fragment>
-                  <a href = {'https://example/com'} ><span className="blog-text25">{content.ScientificName}</span></a>
+                  <a href = {'https://example.com'} ><span className="blog-text25">{content.ScientificName}</span></a>
                 </Fragment>
               }
               readTime={

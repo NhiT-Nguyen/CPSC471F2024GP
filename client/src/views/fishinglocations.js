@@ -110,7 +110,7 @@ const FishingLocations = (props) => {
               }
               blogPostTitle={
                 <Fragment>
-                  <a href = {`/blog/${content.PostID}`} ><span className="blog-text25">{content.Name}</span></a>
+                  <a href = {`/locations/${content.Name}`} ><span className="blog-text25">{content.Name}</span></a>
                 </Fragment>
               }
               readTime={

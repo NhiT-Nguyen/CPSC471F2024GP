@@ -86,6 +86,7 @@ const createFish = (req, res) => {
         res.status(201).json({message: 'Fish created successfully'});
     });
 };
+
 // create common name 
 const createCommonName = (req, res) => {
     const { scientificName, commonName } = req.body;
