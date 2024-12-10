@@ -128,25 +128,32 @@ const getImageById = (req, res) => {
       res.status(500).send('Database query error');
       return;
     }
-    res.json(results);
+    if (results.length === 0) {
+      res.status(404).send('Image not found');
+      return;
+    }
+    const image = results[0].ImageData;
+    res.setHeader('Content-Type', 'image/jpeg');
+    res.send(image);
   });
 };
 
 // add image to post
 const addImageToPost = (req, res) => {
   const { id } = req.params;
-  const { imageData } = req.body;
+  const  imageData  = req.file?.buffer;
   if (!imageData) {
     res.status(400).send('Image data is required');
     return;
   }
   blogModel.addImageToPost(id, imageData, (err, results) => {
     if (err) {
+      console.error('MySQL Error:', err);
       res.status(500).send('Database query error');
       return;
     }
     res.json(results);
-  });
+  }); 
 };
 
 // delete image from post

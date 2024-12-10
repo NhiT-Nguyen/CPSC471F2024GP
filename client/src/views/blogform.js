@@ -9,6 +9,12 @@ import './blog.css'
 
 const BlogForm = (props) => {
 
+
+  const [content, setContent] = useState(null);
+  const [images, setImages] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+
   return (
     <div className="blog-container">
       <Helmet>
@@ -72,6 +78,7 @@ const BlogForm = (props) => {
               }
 
         ></ContactForm3>
+      
 
       <Footer41
         link5={
