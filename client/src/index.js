@@ -25,7 +25,11 @@ import FishForm from './views/fishform'
 import FishingLocations from './views/fishinglocations'
 import LocationForm from './views/fishinglocationform'
 
+import ProfilePage from './views/profilepage'
+
 import NotFound from './views/not-found'
+
+const CurrentUser = ''
 
 const App = () => {
   return (

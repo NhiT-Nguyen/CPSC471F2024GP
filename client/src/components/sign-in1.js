@@ -119,8 +119,8 @@ const SignIn1 = (props) => {
             </span>
             <div className="sign-in1-divider3"></div>
           </div>
+          <a href={props.newAccount}>
           <button type="button" className="sign-in1-button2 thq-button-outline">
-            <a href={props.newAccount}>
             <span className="sign-in1-text19 thq-body-small">
               {props.action2 ?? (
                 <Fragment>
@@ -128,8 +128,8 @@ const SignIn1 = (props) => {
                 </Fragment>
               )}
             </span>
-            </a>
           </button>
+          </a>
         </div>
       </div>
     </div>
