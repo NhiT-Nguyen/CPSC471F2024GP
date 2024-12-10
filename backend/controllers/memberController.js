@@ -52,6 +52,7 @@ const createMember = (req, res) => {
     }
     memberModel.createMember(username, email, password, description, (err, results) => {
         if (err) {
+            console.log(err)
             res.status(500).send('Database query error');
             return;
         }

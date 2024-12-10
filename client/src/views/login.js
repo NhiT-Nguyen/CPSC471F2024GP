@@ -91,10 +91,9 @@ const Login = (props) => {
             <span className="blog-text19">Secondary Action</span>
           </Fragment>
         }
-      ></Navbar8>
+      />
 
     <SignIn1
-
     ></SignIn1>
 
       <Footer41
@@ -142,6 +141,12 @@ const Login = (props) => {
     </div>
   )
 }
+
+
+function checkCredentials (usernameCheck, passwordCheck){
+    
+}
+
 
 
 export default Login

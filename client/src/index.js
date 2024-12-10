@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect} from 'react'
+import React, {Fragment, useState, useEffect, useContext, createContext} from 'react'
 import ReactDOM from 'react-dom'
 import {
   BrowserRouter as Router,
@@ -29,10 +29,21 @@ import ProfilePage from './views/profilepage'
 
 import NotFound from './views/not-found'
 
-const CurrentUser = ''
+export const  CurrentUserContext = createContext(null);
 
 const App = () => {
+
+  const [currentUser, setCurrentUser] = useState(null);
+
+
   return (
+
+      <CurrentUserContext.Provider
+          value={{
+            currentUser,
+            setCurrentUser
+          }}
+       >
     <Router>
       <Switch>
           <Route component={Login} exact path="/login" />
@@ -55,6 +66,7 @@ const App = () => {
           <Redirect to="**" />
       </Switch>
     </Router>
+</CurrentUserContext.Provider>
   )
 }
 

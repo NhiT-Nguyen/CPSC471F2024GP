@@ -39,18 +39,19 @@ const getMemberByEmail = (email, callback) => {
 
 // create a new member, securely store password
 const createMember = (username, email, password, description, callback) => {
-    bcrypt.hash(password, saltRounds, (err, hashedPassword) => {
-        if (err) {
-            console.log(err);
-            callback(err, null);
-            return;
-        }
+    // bcrypt.hash(password, saltRounds, (err, hashedPassword) => {
+    //     if (err) {
+    //         console.log(err);
+    //         callback(err, null);
+    //         return;
+    //     }
+        // console.log(hashedPassword)
         db.query(
             'INSERT INTO member (MUsername, MEmail, MPassword, UserDescription, JoinDate) VALUES (?, ?, ?, ?, ?)',
-            [username, email, hashedPassword, description, new Date()],
+            [username, email, password, description, new Date()],
             callback
         );
-    });
+    // });
 };
 
 // update member description

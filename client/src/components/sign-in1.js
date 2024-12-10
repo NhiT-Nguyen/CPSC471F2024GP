@@ -1,10 +1,64 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useContext, useState } from 'react'
 
 import PropTypes from 'prop-types'
 
 import './sign-in1.css'
+import {CurrentUserContext} from '../index'
+
+
 
 const SignIn1 = (props) => {
+    const {currentUser,setCurrentUser} = useContext(CurrentUserContext);
+    console.log(currentUser)
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [members, setMembers] = useState(null);
+    const [admins, setAdmins] = useState(null);
+
+    function checkCredentials (){
+        members?.map((members) => {
+            if ((members.MUsername == username)&&
+                (members.MPassword == password)){
+                    setCurrentUser({ currentUser: username })
+                }
+
+    })
+        admins?.map((admins) => {
+            if ((admins.AUsername == username)&&
+            (admins.APassword == password)){
+                setCurrentUser({ currentUser: username })
+            }
+
+    })
+
+
+    }
+
+    useEffect(() => {
+        fetch("http://localhost:3000/members/members", {
+          method: "GET",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setMembers(data);
+            console.log(data);
+          })
+          .catch((error) => console.log(error));
+      }, []);
+    
+      useEffect(() => {
+        fetch("http://localhost:3000/members/admins", {
+          method: "GET",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setAdmins(data);
+            console.log(data);
+          })
+          .catch((error) => console.log(error));
+      }, []);
+
   return (
     <div className="sign-in1-container1 thq-section-padding">
       <div className="sign-in1-max-width thq-section-max-width">
@@ -20,17 +74,23 @@ const SignIn1 = (props) => {
               </h2>
               <div className="sign-in1-have-an-account-login"></div>
             </div>
-            <form className="sign-in1-form2">
+            <form className="sign-in1-form2" onSubmit={(e) => {
+                e.preventDefault();
+                checkCredentials()
+                console.log(currentUser)
+            }}>
               <div className="sign-in1-email">
                 <label htmlFor="thq-sign-in-1-email" className="thq-body-large">
                   Username
                 </label>
                 <input
-                  type="email"
                   id="thq-sign-in-1-email"
                   required="true"
                   placeholder="Username"
                   className="sign-in1-textinput1 thq-input thq-body-large"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                
                 />
               </div>
               <div className="sign-in1-password">
@@ -48,12 +108,12 @@ const SignIn1 = (props) => {
                   required="true"
                   placeholder="Password"
                   className="sign-in1-textinput2 thq-input thq-body-large"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+
                 />
               </div>
-            </form>
-            <div className="sign-in1-container3">
-              <div className="sign-in1-container4">
-                <button
+              <button
                   type="submit"
                   className="sign-in1-button1 thq-button-filled"
                 >
@@ -65,6 +125,10 @@ const SignIn1 = (props) => {
                     )}
                   </span>
                 </button>
+            </form>
+            <div className="sign-in1-container3">
+              <div className="sign-in1-container4">
+
                 <div className="sign-in1-terms-agree">
                   <p className="thq-body-large">
                     <span>
@@ -151,5 +215,7 @@ SignIn1.propTypes = {
   content1: PropTypes.element,
   newAccount: PropTypes.string
 }
+
+
 
 export default SignIn1

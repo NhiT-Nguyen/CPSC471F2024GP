@@ -23,6 +23,9 @@ router.get('/locations/:location', fishController.getFishingTypesByLoc);
 // create a new fish
 router.post('/fish', fishController.createFish);
 
+// create a new fishing locations
+router.post('/locations', fishController.createFishingLocation);
+
 // create a new common name
 router.post('/fish/commonNames', fishController.createCommonName);
 
