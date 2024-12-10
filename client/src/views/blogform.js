@@ -13,44 +13,7 @@ const BlogForm = (props) => {
   const [content, setContent] = useState(null);
   const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
-  const postId = props.match.params.id;
 
-  const handleImageUpload = (e) => {
-    e.preventDefault(); // Stop the page from refreshing
-    console.log('Submitting the form...');
-    
-    if (!selectedImage) {
-      console.error('No image selected!');
-      alert('Please select an image before uploading.');
-      return;
-    }
-  
-    const formData = new FormData();
-    formData.append('image', selectedImage);
-  
-    fetch(`http://localhost:3000/blog/posts/${postId}/images`, {
-      method: 'POST',
-      body: formData,
-    })
-      .then((response) => {
-        console.log('Server response:', response);
-        if (!response.ok) {
-          throw new Error('Failed to upload image');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log('Upload successful:', data);
-        alert('Image uploaded successfully!');
-        // Fetch updated images
-        return fetch(`http://localhost:3000/blog/posts/${postId}/images`);
-      })
-      .then((response) => response.json())
-      .then((data) => setImages(data))
-      .catch((error) => {
-        console.error('Error during image upload:', error);
-      });
-  };
 
   return (
     <div className="blog-container">
@@ -116,19 +79,6 @@ const BlogForm = (props) => {
 
         ></ContactForm3>
       
-<div className="image-upload-form">
-  <form onSubmit={handleImageUpload}>
-    <h3>Upload an Image</h3>
-    <input
-      type="file"
-      onChange={(e) => {
-        console.log('File selected:', e.target.files[0]);
-        setSelectedImage(e.target.files[0]);
-      }}
-    />
-    <button type="submit">Upload</button>
-  </form>
-</div>
 
       <Footer41
         link5={
